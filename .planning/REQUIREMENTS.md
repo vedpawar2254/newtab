@@ -70,9 +70,9 @@ Requirements for initial release. Each maps to roadmap phases.
 - [ ] **PROD-01**: User can see a Pomodoro timer with start/pause/reset controls
 - [ ] **PROD-02**: Pomodoro timer tracks completed sessions
 - [ ] **PROD-03**: User can configure Pomodoro durations (work/break intervals)
-- [ ] **PROD-04**: User can track daily habits with checkboxes
-- [ ] **PROD-05**: Habit tracker shows streak count for each habit
-- [ ] **PROD-06**: User can add, edit, and remove habits
+- [x] **PROD-04**: User can track daily habits with checkboxes
+- [x] **PROD-05**: Habit tracker shows streak count for each habit
+- [x] **PROD-06**: User can add, edit, and remove habits
 - [ ] **PROD-07**: Daily journal auto-creates a dated note each day
 - [ ] **PROD-08**: Daily journal includes reflection prompts
 - [ ] **PROD-09**: User can access past journal entries
@@ -180,9 +180,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PROD-01 | Phase 5 | Pending |
 | PROD-02 | Phase 5 | Pending |
 | PROD-03 | Phase 5 | Pending |
-| PROD-04 | Phase 5 | Pending |
-| PROD-05 | Phase 5 | Pending |
-| PROD-06 | Phase 5 | Pending |
+| PROD-04 | Phase 5 | Complete |
+| PROD-05 | Phase 5 | Complete |
+| PROD-06 | Phase 5 | Complete |
 | PROD-07 | Phase 5 | Pending |
 | PROD-08 | Phase 5 | Pending |
 | PROD-09 | Phase 5 | Pending |
