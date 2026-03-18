@@ -34,8 +34,8 @@ Inherited from Phase 1 (multiples of 4):
 | Token | Value | Usage |
 |-------|-------|-------|
 | xs | 4px | Icon gaps, toolbar button padding, inline code padding |
-| sm | 8px | Toolbar button gaps, slash menu item padding-y, block vertical gap |
-| md | 16px | Editor body padding, slash menu padding, code block padding |
+| sm | 8px | Toolbar button gaps, slash menu item padding-y, block vertical gap, table cell padding-y |
+| md | 16px | Editor body padding, slash menu padding, code block padding, table cell padding-x |
 | lg | 24px | Editor top padding below title, section breaks |
 | xl | 32px | Editor horizontal padding |
 | 2xl | 48px | Editor top margin (below app shell header region) |
@@ -43,32 +43,29 @@ Inherited from Phase 1 (multiples of 4):
 
 Exceptions:
 - Drag handle hit area: 24px x 24px (centered on a 16px grip icon, provides comfortable grab target)
-- Bubble toolbar button size: 28px x 28px (consistent with sidebar toggle from Phase 1)
-- Table cell padding: 8px 12px (12px horizontal is not on-scale, justified for cell readability)
+- Bubble toolbar button size: 32px x 32px (on-scale, provides comfortable touch/click target)
 
 ---
 
 ## Typography
 
-Inherited from Phase 1, extended with editor-specific roles:
+Consolidated to 4 unique sizes with 2 weights:
 
 | Role | Size | Weight | Line Height | Usage |
 |------|------|--------|-------------|-------|
-| Display | 28px | 600 (semibold) | 1.2 | Note title field (H1 equivalent) |
-| Heading 1 | 24px | 600 (semibold) | 1.3 | Editor H1 blocks |
-| Heading 2 | 20px | 600 (semibold) | 1.3 | Editor H2 blocks |
-| Heading 3 | 16px | 600 (semibold) | 1.4 | Editor H3 blocks |
-| Body | 14px | 400 (regular) | 1.7 | Editor paragraph text, list items, task items |
-| Code inline | 13px | 400 (regular) | 1.5 | Inline code spans |
-| Code block | 13px | 400 (regular) | 1.6 | Code block content |
-| Label | 12px | 400 (regular) | 1.4 | Toolbar labels, slash menu category headers, code block language label |
-| Caption | 11px | 400 (regular) | 1.4 | Table cell footnote text, image alt text display |
+| Display | 28px | 600 (semibold) | 1.2 | Note title field (H1 equivalent), Editor H1 blocks |
+| Heading | 20px | 600 (semibold) | 1.3 | Editor H2 blocks, Editor H3 blocks |
+| Body | 14px | 400 (regular) | 1.7 | Editor paragraph text, list items, task items, inline code, code block content, slash menu item labels, table cell text |
+| Label | 12px | 400 (regular) | 1.4 | Toolbar labels, slash menu category headers, code block language label, link embed description, link embed URL, slash menu item descriptions |
 
 **Notes:**
 - Editor body uses 1.7 line-height (elevated from the 1.5 shell default) for comfortable reading in long-form content
 - Only two font weights loaded: 400 and 600 (same as Phase 1)
 - Heading letter-spacing: -0.01em (inherited from Phase 1)
 - Note title field uses placeholder weight 400 for "Untitled" ghost text, switches to 600 on input
+- H3 uses the same 20px Heading size as H2 but at weight 400 to create visual distinction
+- Inline code and code blocks use Body size (14px) in monospace font for consistency
+- Code block line-height: 1.6 (slightly tighter than body prose for code readability)
 
 ---
 
@@ -145,7 +142,7 @@ Accent is NOT used for: code block backgrounds, table borders, slash menu backgr
 | Border-radius | 8px |
 | Padding | 4px |
 | Shadow | `0 4px 12px rgba(0, 0, 0, 0.40)` (exception to Phase 1 flat-surface rule -- floating elements need depth) |
-| Button size | 28px x 28px |
+| Button size | 32px x 32px |
 | Button gap | 2px |
 | Button border-radius | 4px |
 | Button hover | Background `#2F2F2F` |
@@ -158,6 +155,18 @@ Accent is NOT used for: code block backgrounds, table borders, slash menu backgr
 
 **Button order (left to right):**
 Bold | Italic | Underline | Strikethrough | `|` | Code | Link | `|` | Heading dropdown (H1/H2/H3)
+
+**Accessible labels for icon-only toolbar buttons:**
+
+| Button | `aria-label` |
+|--------|-------------|
+| Bold | `"Toggle bold"` |
+| Italic | `"Toggle italic"` |
+| Underline | `"Toggle underline"` |
+| Strikethrough | `"Toggle strikethrough"` |
+| Code | `"Toggle inline code"` |
+| Link | `"Insert link"` |
+| Heading | `"Change heading level"` |
 
 **Heading dropdown:** Clicking the heading button opens a small dropdown below it with three options (H1, H2, H3). Each shows the label and size visually. Selecting one converts the current block.
 
@@ -183,7 +192,7 @@ Bold | Italic | Underline | Strikethrough | `|` | Code | Link | `|` | Heading dr
 | Exit animation | Fade out, 80ms ease-in |
 
 **Category headers:**
-- Font: 11px, weight 400, uppercase, letter-spacing 0.05em
+- Font: 12px, weight 400, uppercase, letter-spacing 0.05em
 - Color: `rgba(255, 255, 255, 0.35)`
 - Padding: 8px left, 4px top/bottom
 - Not selectable (skipped by keyboard navigation)
@@ -220,10 +229,10 @@ Bold | Italic | Underline | Strikethrough | `|` | Code | Link | `|` | Heading dr
 | Border | 1px solid `rgba(255, 255, 255, 0.08)` |
 | Border-radius | 8px |
 | Padding | 16px |
-| Font | JetBrains Mono, 13px, weight 400, line-height 1.6 |
+| Font | JetBrains Mono, 14px, weight 400, line-height 1.6 |
 | Language selector | Top-right corner, 12px text, `rgba(255, 255, 255, 0.35)` idle color, dropdown on click |
 | Language selector hover | Color `rgba(255, 255, 255, 0.60)` |
-| Copy button | Top-right corner (left of language selector), 16px `Copy` icon (lucide), appears on block hover only |
+| Copy button | Top-right corner (left of language selector), 16px `Copy` icon (lucide), appears on block hover only, `aria-label="Copy code"` |
 | Copy button hover | Background `#2F2F2F`, border-radius 4px |
 | Copy feedback | Icon changes to `Check` (lucide) in `#30A46C` for 2000ms after click |
 | Syntax theme | Custom dark theme matching the app palette (highlight.js/lowlight tokens mapped to app colors) |
@@ -248,14 +257,14 @@ Bold | Italic | Underline | Strikethrough | `|` | Code | Link | `|` | Heading dr
 |----------|-------|
 | Border | 1px solid `rgba(255, 255, 255, 0.08)` on all cell edges |
 | Border-radius | 4px on outermost corners |
-| Cell padding | 8px 12px |
+| Cell padding | 8px 16px |
 | Cell font | 14px body text |
 | Header row | Background `#252525`, font weight 600 |
 | Cell selection | Background `rgba(91, 155, 213, 0.10)` |
 | Min column width | 80px |
 | Resize handle | 3px wide vertical bar on column edge, `rgba(91, 155, 213, 0.40)` on hover |
-| Add row button | `+` circle, 20px diameter, centered below table bottom edge, visible on table hover |
-| Add column button | `+` circle, 20px diameter, centered right of table right edge, visible on table hover |
+| Add row button | `+` circle, 20px diameter, centered below table bottom edge, visible on table hover, `aria-label="Add row"` |
+| Add column button | `+` circle, 20px diameter, centered right of table right edge, visible on table hover, `aria-label="Add column"` |
 | Add button style | Background `#2F2F2F`, border 1px solid `rgba(255, 255, 255, 0.12)`, `Plus` icon 12px |
 | Add button hover | Background `#3A3A3A` |
 
@@ -301,6 +310,7 @@ Bold | Italic | Underline | Strikethrough | `|` | Code | Link | `|` | Heading dr
 | Cursor | `grab` on hover, `grabbing` while dragging |
 | Drop indicator | 2px horizontal line in `#5B9BD5` at the drop position between blocks |
 | Drag ghost | Semi-transparent (opacity 0.5) clone of the block being dragged |
+| Accessible label | `aria-label="Drag to reorder block"` |
 
 ### Task List (Checkbox Items)
 
@@ -314,6 +324,7 @@ Bold | Italic | Underline | Strikethrough | `|` | Code | Link | `|` | Heading dr
 | Checkbox-to-text gap | 8px |
 | Hover | Checkbox border `rgba(255, 255, 255, 0.40)` |
 | Transition | 150ms ease for check/uncheck |
+| Accessible label | `aria-label="Toggle task complete"` on checkbox |
 
 ### Blockquote
 
@@ -376,7 +387,7 @@ Bold | Italic | Underline | Strikethrough | `|` | Code | Link | `|` | Heading dr
 | Note title placeholder | "Untitled" |
 | Editor body placeholder | "Type / for commands..." |
 | Empty editor (first use) | No special empty state -- the placeholder text IS the empty state |
-| Slash menu empty filter | "No results" (centered, 12px, text-secondary) |
+| Slash menu empty filter | "No match found -- press Esc to close" (centered, 12px, text-secondary) |
 | Code block default language | "Plain text" (language selector label when no language chosen) |
 | Copy code feedback | Tooltip "Copied!" appears for 2000ms |
 | Image upload placeholder | "Add an image" |
@@ -425,7 +436,7 @@ Bold | Italic | Underline | Strikethrough | `|` | Code | Link | `|` | Heading dr
 |-------|----------|
 | `/` typed | Menu appears below cursor (120ms slide + fade) |
 | Typing after `/` | Items filter in real time, selected item resets to first match |
-| No matches | "No results" shown |
+| No matches | "No match found -- press Esc to close" shown |
 | Arrow navigation | Selected item highlighted, menu scrolls to keep selection visible |
 | Enter on item | Block inserted, slash text removed, menu closes |
 | Escape | Menu closes, `/` text remains |
