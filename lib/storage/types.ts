@@ -57,3 +57,23 @@ export interface PomodoroState {
 }
 
 export type WidgetSectionId = 'pomodoro' | 'habits' | 'journal';
+
+export interface TaskRecord {
+  id: string;
+  title: string;
+  columnId: string;
+  order: number;
+  createdAt: number;
+  updatedAt: number;
+}
+
+export interface KanbanColumn {
+  id: string;
+  title: string;
+  order: number;
+}
+
+export interface KanbanState {
+  columns: KanbanColumn[];
+  updatedAt: number;
+}
