@@ -15,6 +15,7 @@ import { common, createLowlight } from 'lowlight';
 import type { Extensions } from '@tiptap/react';
 import { CodeBlockView } from '../../components/editor/CodeBlockView';
 import { BookmarkCard } from './extensions/bookmark-card';
+import { SlashCommand } from './extensions/slash-command';
 
 export const lowlightInstance = createLowlight(common);
 
@@ -79,5 +80,6 @@ export function createExtensions(): Extensions {
       },
     }),
     BookmarkCard,
+    SlashCommand,
   ];
 }
