@@ -1,43 +1,37 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
-// In-memory mock stores
-let tasksStore: Map<string, any>;
-let settingsStore: Map<string, any>;
+const tasksStore = new Map<string, any>();
+const settingsStore = new Map<string, any>();
 
-vi.mock('../lib/storage/db', () => {
-  tasksStore = new Map();
-  settingsStore = new Map();
-  return {
-    db: {
-      tasks: {
-        get: vi.fn(async (id: string) => tasksStore.get(id)),
-        put: vi.fn(async (task: any) => { tasksStore.set(task.id, task); }),
-        delete: vi.fn(async (id: string) => { tasksStore.delete(id); }),
-        toArray: vi.fn(async () => Array.from(tasksStore.values())),
-        bulkPut: vi.fn(async (items: any[]) => {
-          for (const item of items) tasksStore.set(item.id, item);
-        }),
-      },
-      settings: {
-        get: vi.fn(async (key: string) => settingsStore.get(key)),
-        put: vi.fn(async (record: any) => { settingsStore.set(record.key, record); }),
-      },
-      notes: {
-        get: vi.fn(),
-        put: vi.fn(),
-        delete: vi.fn(),
-        toArray: vi.fn(async () => []),
-      },
+vi.mock('../lib/storage/db', () => ({
+  db: {
+    tasks: {
+      get: vi.fn((id: string) => Promise.resolve(tasksStore.get(id))),
+      put: vi.fn((task: any) => { tasksStore.set(task.id, task); return Promise.resolve(); }),
+      delete: vi.fn((id: string) => { tasksStore.delete(id); return Promise.resolve(); }),
+      toArray: vi.fn(() => Promise.resolve(Array.from(tasksStore.values()))),
+      bulkPut: vi.fn((items: any[]) => {
+        for (const item of items) tasksStore.set(item.id, item);
+        return Promise.resolve();
+      }),
     },
-  };
-});
+    settings: {
+      get: vi.fn((key: string) => Promise.resolve(settingsStore.get(key))),
+      put: vi.fn((record: any) => { settingsStore.set(record.key, record); return Promise.resolve(); }),
+    },
+    notes: {
+      get: vi.fn(),
+      put: vi.fn(),
+      delete: vi.fn(),
+      toArray: vi.fn(() => Promise.resolve([])),
+    },
+  },
+}));
 
 import { db } from '../lib/storage/db';
 
 describe('types', () => {
   it('TaskRecord interface has required fields', async () => {
-    const { TaskRecordFields } = await import('../lib/storage/types');
-    // We check the types exist by importing and verifying they can be used
     const task: import('../lib/storage/types').TaskRecord = {
       id: 'task-1',
       title: 'Test',
