@@ -6,44 +6,39 @@ import type { TaskRecord } from '../../lib/storage/types';
 
 interface TodoItemProps {
   task: TaskRecord;
-  onComplete: (id: string) => void;
+  isCompleted: boolean;
+  onToggle: (id: string) => void;
   onDelete: (id: string) => void;
   onUpdate: (id: string, title: string) => void;
 }
 
-export function TodoItem({ task, onComplete, onDelete, onUpdate }: TodoItemProps) {
-  const [checked, setChecked] = useState(false);
+export function TodoItem({ task, isCompleted, onToggle, onDelete, onUpdate }: TodoItemProps) {
   const [editing, setEditing] = useState(false);
   const [editValue, setEditValue] = useState(task.title);
   const [hovered, setHovered] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const {
-    attributes,
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-    isDragging,
-  } = useSortable({ id: task.id });
+  // Only use sortable for incomplete tasks
+  const sortable = useSortable({ id: task.id, disabled: isCompleted });
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = sortable;
 
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-    opacity: isDragging ? 0 : 1,
-  };
+  const style = isCompleted
+    ? undefined
+    : {
+        transform: CSS.Transform.toString(transform),
+        transition,
+        opacity: isDragging ? 0 : 1,
+      };
 
-  const handleCheck = useCallback(() => {
-    setChecked(true);
-    setTimeout(() => {
-      onComplete(task.id);
-    }, 2000);
-  }, [task.id, onComplete]);
+  const handleToggle = useCallback(() => {
+    onToggle(task.id);
+  }, [task.id, onToggle]);
 
   const handleDoubleClick = useCallback(() => {
+    if (isCompleted) return;
     setEditing(true);
     setEditValue(task.title);
-  }, [task.title]);
+  }, [task.title, isCompleted]);
 
   const commitEdit = useCallback(() => {
     setEditing(false);
@@ -73,26 +68,25 @@ export function TodoItem({ task, onComplete, onDelete, onUpdate }: TodoItemProps
 
   return (
     <div
-      ref={setNodeRef}
+      ref={isCompleted ? undefined : setNodeRef}
       style={style}
-      className={`flex items-center gap-[8px] min-h-[36px] py-[8px] px-[8px] rounded-[4px] group transition-colors ${
+      className={`flex items-center gap-[8px] min-h-[36px] py-[6px] px-[8px] rounded-[4px] group transition-colors ${
         hovered ? 'bg-surface-elevated' : ''
-      } ${checked ? 'line-through opacity-50' : ''}`}
+      } ${isCompleted ? 'opacity-50' : ''}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       {/* Checkbox */}
       <button
-        onClick={handleCheck}
-        disabled={checked}
+        onClick={handleToggle}
         className={`w-[18px] h-[18px] flex-shrink-0 rounded-[4px] border-[2px] flex items-center justify-center transition-colors ${
-          checked
+          isCompleted
             ? 'bg-success border-success'
             : 'border-[rgba(255,255,255,0.25)] hover:border-[rgba(255,255,255,0.40)]'
         }`}
-        aria-label={`Mark "${task.title}" as complete`}
+        aria-label={isCompleted ? `Uncheck "${task.title}"` : `Complete "${task.title}"`}
       >
-        {checked && (
+        {isCompleted && (
           <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
             <path d="M1 4L3.5 6.5L9 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -112,8 +106,8 @@ export function TodoItem({ task, onComplete, onDelete, onUpdate }: TodoItemProps
         />
       ) : (
         <span
-          className={`flex-1 text-[13px] text-text-primary truncate cursor-default ${
-            checked ? 'line-through opacity-50' : ''
+          className={`flex-1 text-[13px] truncate cursor-default ${
+            isCompleted ? 'line-through text-text-secondary' : 'text-text-primary'
           }`}
           onDoubleClick={handleDoubleClick}
           spellCheck={false}
@@ -125,26 +119,28 @@ export function TodoItem({ task, onComplete, onDelete, onUpdate }: TodoItemProps
       {/* Delete button */}
       <button
         onClick={() => onDelete(task.id)}
-        className={`w-[20px] h-[20px] flex items-center justify-center text-text-secondary hover:text-destructive transition-colors flex-shrink-0 ${
-          hovered && !checked ? 'opacity-100' : 'opacity-0'
+        className={`w-[20px] h-[20px] flex items-center justify-center text-text-secondary hover:text-destructive transition-opacity flex-shrink-0 ${
+          hovered ? 'opacity-100' : 'opacity-0'
         }`}
         aria-label={`Delete "${task.title}"`}
-        tabIndex={hovered && !checked ? 0 : -1}
+        tabIndex={hovered ? 0 : -1}
       >
         <X size={12} />
       </button>
 
-      {/* Drag handle — always rendered so drag listeners stay attached */}
-      <button
-        {...attributes}
-        {...listeners}
-        className={`w-[20px] h-[20px] flex items-center justify-center text-text-secondary hover:text-text-primary cursor-grab active:cursor-grabbing flex-shrink-0 transition-opacity ${
-          hovered && !checked ? 'opacity-100' : 'opacity-0'
-        }`}
-        aria-label="Drag to reorder"
-      >
-        <GripVertical size={14} />
-      </button>
+      {/* Drag handle — only for incomplete tasks */}
+      {!isCompleted && (
+        <button
+          {...attributes}
+          {...listeners}
+          className={`w-[20px] h-[20px] flex items-center justify-center text-text-secondary hover:text-text-primary cursor-grab active:cursor-grabbing flex-shrink-0 transition-opacity ${
+            hovered ? 'opacity-100' : 'opacity-0'
+          }`}
+          aria-label="Drag to reorder"
+        >
+          <GripVertical size={14} />
+        </button>
+      )}
     </div>
   );
 }

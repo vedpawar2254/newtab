@@ -14,7 +14,7 @@ import {
   verticalListSortingStrategy,
   sortableKeyboardCoordinates,
 } from '@dnd-kit/sortable';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Trash2 } from 'lucide-react';
 import { useTaskStore } from '../../lib/stores/task-store';
 import { TodoItem } from './TodoItem';
 import { TodoInput } from './TodoInput';
@@ -27,6 +27,7 @@ interface TodoPanelProps {
 export function TodoPanel({ isOpen }: TodoPanelProps) {
   const tasks = useTaskStore((s) => s.tasks);
   const completeTask = useTaskStore((s) => s.completeTask);
+  const uncompleteTask = useTaskStore((s) => s.uncompleteTask);
   const deleteTask = useTaskStore((s) => s.deleteTask);
   const updateTask = useTaskStore((s) => s.updateTask);
   const reorderTask = useTaskStore((s) => s.reorderTask);
@@ -36,18 +37,30 @@ export function TodoPanel({ isOpen }: TodoPanelProps) {
 
   const doneColumnId = getDoneColumnId();
 
-  const activeTasks = useMemo(() => {
+  // Show ALL tasks — incomplete first, then completed
+  const incompleteTasks = useMemo(() => {
     return tasks
       .filter((t) => t.columnId !== doneColumnId)
       .sort((a, b) => a.order - b.order);
   }, [tasks, doneColumnId]);
 
+  const completedTasks = useMemo(() => {
+    return tasks
+      .filter((t) => t.columnId === doneColumnId)
+      .sort((a, b) => b.updatedAt - a.updatedAt);
+  }, [tasks, doneColumnId]);
+
+  const allDisplayTasks = useMemo(
+    () => [...incompleteTasks, ...completedTasks],
+    [incompleteTasks, completedTasks]
+  );
+
   const activeTask = useMemo(() => {
     if (!activeId) return null;
-    return activeTasks.find((t) => t.id === activeId) ?? null;
-  }, [activeId, activeTasks]);
+    return incompleteTasks.find((t) => t.id === activeId) ?? null;
+  }, [activeId, incompleteTasks]);
 
-  const taskIds = useMemo(() => activeTasks.map((t) => t.id), [activeTasks]);
+  const incompleteIds = useMemo(() => incompleteTasks.map((t) => t.id), [incompleteTasks]);
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
@@ -64,14 +77,27 @@ export function TodoPanel({ isOpen }: TodoPanelProps) {
       const { active, over } = event;
       if (!over || active.id === over.id) return;
 
-      const oldIndex = activeTasks.findIndex((t) => t.id === active.id);
-      const newIndex = activeTasks.findIndex((t) => t.id === over.id);
+      const oldIndex = incompleteTasks.findIndex((t) => t.id === active.id);
+      const newIndex = incompleteTasks.findIndex((t) => t.id === over.id);
       if (oldIndex === -1 || newIndex === -1) return;
 
-      const task = activeTasks[oldIndex];
+      const task = incompleteTasks[oldIndex];
       reorderTask(task.id, task.columnId, newIndex);
     },
-    [activeTasks, reorderTask]
+    [incompleteTasks, reorderTask]
+  );
+
+  const handleToggle = useCallback(
+    (id: string) => {
+      const task = tasks.find((t) => t.id === id);
+      if (!task) return;
+      if (task.columnId === doneColumnId) {
+        uncompleteTask(id);
+      } else {
+        completeTask(id);
+      }
+    },
+    [tasks, doneColumnId, completeTask, uncompleteTask]
   );
 
   const handleUpdate = useCallback(
@@ -81,6 +107,10 @@ export function TodoPanel({ isOpen }: TodoPanelProps) {
     [updateTask]
   );
 
+  const handleClearCompleted = useCallback(() => {
+    completedTasks.forEach((t) => deleteTask(t.id));
+  }, [completedTasks, deleteTask]);
+
   return (
     <aside
       data-region="panels"
@@ -89,15 +119,25 @@ export function TodoPanel({ isOpen }: TodoPanelProps) {
       }`}
     >
       {/* Header */}
-      <div className="h-[44px] flex items-center px-[16px] border-b border-border flex-shrink-0">
+      <div className="h-[44px] flex items-center justify-between px-[16px] border-b border-border flex-shrink-0">
         <span className="text-[12px] font-normal uppercase tracking-[0.05em] text-text-secondary">
           TODOS
         </span>
+        {completedTasks.length > 0 && (
+          <button
+            onClick={handleClearCompleted}
+            className="flex items-center gap-[4px] text-[11px] text-text-secondary hover:text-destructive transition-colors"
+            aria-label="Clear completed todos"
+          >
+            <Trash2 size={12} />
+            Clear done ({completedTasks.length})
+          </button>
+        )}
       </div>
 
       {/* Body */}
       <div className="flex-1 overflow-y-auto px-[8px] py-[8px]">
-        {activeTasks.length === 0 ? (
+        {allDisplayTasks.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full gap-[8px] text-center px-[16px]">
             <CheckCircle2 size={32} className="text-[rgba(255,255,255,0.15)]" />
             <span className="text-[13px] text-text-primary font-medium">
@@ -108,32 +148,55 @@ export function TodoPanel({ isOpen }: TodoPanelProps) {
             </span>
           </div>
         ) : (
-          <DndContext
-            sensors={sensors}
-            collisionDetection={closestCenter}
-            onDragStart={handleDragStart}
-            onDragEnd={handleDragEnd}
-          >
-            <SortableContext
-              items={taskIds}
-              strategy={verticalListSortingStrategy}
+          <>
+            {/* Incomplete tasks — draggable */}
+            <DndContext
+              sensors={sensors}
+              collisionDetection={closestCenter}
+              onDragStart={handleDragStart}
+              onDragEnd={handleDragEnd}
             >
-              {activeTasks.map((task) => (
-                <TodoItem
-                  key={task.id}
-                  task={task}
-                  onComplete={completeTask}
-                  onDelete={deleteTask}
-                  onUpdate={handleUpdate}
-                />
-              ))}
-            </SortableContext>
-            <DragOverlay>
-              {activeTask ? (
-                <TodoItemOverlay task={activeTask} />
-              ) : null}
-            </DragOverlay>
-          </DndContext>
+              <SortableContext
+                items={incompleteIds}
+                strategy={verticalListSortingStrategy}
+              >
+                {incompleteTasks.map((task) => (
+                  <TodoItem
+                    key={task.id}
+                    task={task}
+                    isCompleted={false}
+                    onToggle={handleToggle}
+                    onDelete={deleteTask}
+                    onUpdate={handleUpdate}
+                  />
+                ))}
+              </SortableContext>
+              <DragOverlay>
+                {activeTask ? (
+                  <TodoItemOverlay task={activeTask} />
+                ) : null}
+              </DragOverlay>
+            </DndContext>
+
+            {/* Completed tasks — not draggable, shown below with separator */}
+            {completedTasks.length > 0 && (
+              <>
+                {incompleteTasks.length > 0 && (
+                  <div className="border-t border-border my-[8px]" />
+                )}
+                {completedTasks.map((task) => (
+                  <TodoItem
+                    key={task.id}
+                    task={task}
+                    isCompleted={true}
+                    onToggle={handleToggle}
+                    onDelete={deleteTask}
+                    onUpdate={handleUpdate}
+                  />
+                ))}
+              </>
+            )}
+          </>
         )}
       </div>
 
