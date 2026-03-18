@@ -1,2 +1,3 @@
-keep commiting
-DONOT INLCUDE claude in the commit
+- keep commiting but
+- DONOT INLCUDE claude in the commit, i should NOT see cllaude in my commit history
+- NO emojis anywhere in the code 
