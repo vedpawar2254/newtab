@@ -31,11 +31,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. The layout shows a collapsible sidebar on the left and a main content area center stage (notes-first)
   4. UI transitions and interactions (sidebar toggle, panel switching) feel smooth with no jank
   5. Storage uses per-note keys with a lightweight index -- not a single JSON blob
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [ ] 01-01-PLAN.md — Scaffold WXT project, storage layer (Dexie DB + StorageService), and Zustand stores
+- [ ] 01-02-PLAN.md — App shell UI: dark-themed layout with sidebar, empty state, skeleton loading, animations
+- [ ] 01-03-PLAN.md — Feedback UI (toasts, save status) and test infrastructure (Vitest)
 
 ### Phase 2: Core Editor
 **Goal**: Users can create and edit notes with a Notion-quality block editor featuring rich text, markdown shortcuts, code blocks, tables, embeds, and slash commands
@@ -123,7 +124,7 @@ Note: Phases 4 and 5 depend only on Phase 1 and can be parallelized with Phases 
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation + App Shell | 0/? | Not started | - |
+| 1. Foundation + App Shell | 0/3 | Planning complete | - |
 | 2. Core Editor | 0/? | Not started | - |
 | 3. Pages + Navigation | 0/? | Not started | - |
 | 4. Todo + Kanban | 0/? | Not started | - |
