@@ -22,7 +22,210 @@
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
   --spacing-sidebar: 240px;
+
+  /* Phase 2 editor additions */
+  --color-code-bg: #1E1E1E;
+  --color-selection: rgba(91, 155, 213, 0.20);
+  --color-checkbox-checked: #5B9BD5;
+  --color-checkbox-unchecked: rgba(255, 255, 255, 0.20);
+  --color-bookmark-bg: #252525;
+  --color-drag-handle: rgba(255, 255, 255, 0.25);
+  --color-drag-handle-hover: rgba(255, 255, 255, 0.50);
+  --color-drop-indicator: #5B9BD5;
+
+  /* Syntax highlighting */
+  --color-syntax-keyword: #C586C0;
+  --color-syntax-string: #CE9178;
+  --color-syntax-number: #B5CEA8;
+  --color-syntax-comment: rgba(255, 255, 255, 0.30);
+  --color-syntax-function: #DCDCAA;
+  --color-syntax-variable: #9CDCFE;
+  --color-syntax-type: #4EC9B0;
+
+  /* Editor layout */
+  --spacing-editor-max-width: 720px;
+  --spacing-block-gap: 4px;
+  --spacing-paragraph-gap: 8px;
 }
+
+/* ===== Tiptap / ProseMirror Editor Styles ===== */
+
+.ProseMirror {
+  outline: none;
+  min-height: 60vh;
+  caret-color: #5B9BD5;
+}
+
+.ProseMirror p {
+  margin: 8px 0;
+}
+
+.ProseMirror h1 {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 24px 0 8px;
+}
+
+.ProseMirror h2 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 16px 0 8px;
+}
+
+.ProseMirror h3 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 16px 0 8px;
+}
+
+.ProseMirror ul {
+  padding-left: 24px;
+  list-style: disc;
+}
+
+.ProseMirror ol {
+  padding-left: 24px;
+  list-style: decimal;
+}
+
+.ProseMirror blockquote {
+  border-left: 3px solid rgba(255, 255, 255, 0.15);
+  padding-left: 16px;
+  color: rgba(255, 255, 255, 0.70);
+  font-style: italic;
+  margin: 8px 0;
+}
+
+.ProseMirror hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 24px 0;
+}
+
+.ProseMirror code {
+  background: #2F2F2F;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+}
+
+.ProseMirror pre {
+  background: #1E1E1E;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ProseMirror pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+.ProseMirror ::selection {
+  background: rgba(91, 155, 213, 0.20);
+}
+
+/* Task list styles */
+ul[data-type="taskList"] {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul[data-type="taskList"] li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+ul[data-type="taskList"] li > label {
+  flex-shrink: 0;
+  user-select: none;
+}
+
+ul[data-type="taskList"] li > label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: 2px solid rgba(255, 255, 255, 0.20);
+  background: transparent;
+  appearance: none;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+ul[data-type="taskList"] li > label input[type="checkbox"]:checked {
+  background: #5B9BD5;
+  border-color: #5B9BD5;
+}
+
+ul[data-type="taskList"] li > label input[type="checkbox"]:hover {
+  border-color: rgba(255, 255, 255, 0.40);
+}
+
+li[data-type="taskItem"][data-checked="true"] > div {
+  text-decoration: line-through;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* Placeholder styles */
+.ProseMirror .is-empty::before {
+  content: attr(data-placeholder);
+  color: rgba(255, 255, 255, 0.25);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Table styles */
+.ProseMirror table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 8px 0;
+}
+
+.ProseMirror table td,
+.ProseMirror table th {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 16px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.ProseMirror table th {
+  background: #252525;
+  font-weight: 600;
+}
+
+/* Syntax highlighting token classes */
+.hljs-keyword { color: #C586C0; }
+.hljs-string { color: #CE9178; }
+.hljs-number { color: #B5CEA8; }
+.hljs-comment { color: rgba(255, 255, 255, 0.30); }
+.hljs-function { color: #DCDCAA; }
+.hljs-variable { color: #9CDCFE; }
+.hljs-type { color: #4EC9B0; }
+.hljs-title { color: #DCDCAA; }
+.hljs-title.function_ { color: #DCDCAA; }
+.hljs-params { color: #9CDCFE; }
+.hljs-built_in { color: #4EC9B0; }
+.hljs-literal { color: #569CD6; }
+.hljs-attr { color: #9CDCFE; }
+.hljs-selector-class { color: #D7BA7D; }
+.hljs-selector-tag { color: #D7BA7D; }
+.hljs-template-variable { color: #9CDCFE; }
+.hljs-operator { color: #D4D4D4; }
+.hljs-punctuation { color: rgba(255, 255, 255, 0.50); }
 
 @keyframes shimmer {
   0% { background-position: -200% 0; }
