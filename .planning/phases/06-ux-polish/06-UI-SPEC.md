@@ -1,7 +1,7 @@
 ---
 phase: 6
 slug: ux-polish
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-03-19
@@ -100,6 +100,8 @@ Accent is NOT used for: command palette background, backdrop, category headers, 
 ---
 
 ## Command Palette Contract
+
+**Focal point:** Command palette search input — always focused when open, anchored by search icon, surrounded by dimmed backdrop.
 
 ### Container
 
@@ -226,7 +228,8 @@ When the user types a query that matches note content (not just commands), resul
 | Property | Value |
 |----------|-------|
 | Icon | `SearchX` (lucide), 32px, color `rgba(91, 155, 213, 0.30)` |
-| Text | "No results found" |
+| Heading | "No matches for '{query}'" |
+| Sub-text | "Try different words, or press Esc and create a new page." |
 | Text size | 14px |
 | Text color | `rgba(255, 255, 255, 0.50)` |
 | Layout | Centered vertically in result area, icon above text with 8px gap |
@@ -436,11 +439,11 @@ These custom properties extend the Phase 1 tokens in the global CSS file:
 
 ## Checker Sign-Off
 
-- [ ] Dimension 1 Copywriting: PASS
-- [ ] Dimension 2 Visuals: PASS
-- [ ] Dimension 3 Color: PASS
-- [ ] Dimension 4 Typography: PASS
-- [ ] Dimension 5 Spacing: PASS
-- [ ] Dimension 6 Registry Safety: PASS
+- [x] Dimension 1 Copywriting: PASS (no-results copy fixed with actionable guidance)
+- [x] Dimension 2 Visuals: PASS (focal point explicitly declared)
+- [x] Dimension 3 Color: PASS
+- [x] Dimension 4 Typography: PASS
+- [x] Dimension 5 Spacing: PASS
+- [x] Dimension 6 Registry Safety: PASS
 
-**Approval:** pending
+**Approval:** approved (2026-03-19)

@@ -1,5 +1,6 @@
-import { Plus } from 'lucide-react';
 import { useUIStore } from '../../lib/stores/ui-store';
+import { NewPageButton } from '../sidebar/NewPageButton';
+import { PageTree } from '../sidebar/PageTree';
 import { SidebarToggle } from './SidebarToggle';
 
 interface SidebarProps {
@@ -26,21 +27,16 @@ export function Sidebar({ isOpen, onToggle, children }: SidebarProps) {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto px-[16px]">
+      <nav className="flex-1 overflow-y-auto px-[8px] flex flex-col">
         {isLoading ? (
           children
         ) : (
-          <p className="text-[12px] text-text-secondary">No pages yet</p>
+          <>
+            <NewPageButton />
+            <PageTree />
+          </>
         )}
       </nav>
-
-      {/* Bottom action */}
-      <div className="px-[16px] py-[16px]">
-        <button className="flex items-center gap-[8px] text-accent text-[14px] py-[8px] px-[16px] w-full rounded hover:bg-surface-elevated transition-colors duration-150">
-          <Plus size={16} />
-          <span>New Page</span>
-        </button>
-      </div>
     </aside>
   );
 }
