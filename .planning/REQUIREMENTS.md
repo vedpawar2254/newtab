@@ -79,9 +79,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Quotes
 
-- [ ] **QUOT-01**: User can see a motivational quote in a corner of the page
-- [ ] **QUOT-02**: Quotes rotate daily or on page refresh
-- [ ] **QUOT-03**: Extension includes a built-in library of motivational quotes
+- [x] **QUOT-01**: User can see a motivational quote in a corner of the page
+- [x] **QUOT-02**: Quotes rotate daily or on page refresh
+- [x] **QUOT-03**: Extension includes a built-in library of motivational quotes
 
 ### UX
 
@@ -186,9 +186,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PROD-07 | Phase 5 | Pending |
 | PROD-08 | Phase 5 | Pending |
 | PROD-09 | Phase 5 | Pending |
-| QUOT-01 | Phase 5 | Pending |
-| QUOT-02 | Phase 5 | Pending |
-| QUOT-03 | Phase 5 | Pending |
+| QUOT-01 | Phase 5 | Complete |
+| QUOT-02 | Phase 5 | Complete |
+| QUOT-03 | Phase 5 | Complete |
 | UX-01 | Phase 6 | Pending |
 | UX-02 | Phase 6 | Pending |
 | UX-03 | Phase 6 | Pending |

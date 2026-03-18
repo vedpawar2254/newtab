@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-02-PLAN.md
-last_updated: "2026-03-18T20:31:37.670Z"
+stopped_at: Completed 05-01-PLAN.md
+last_updated: "2026-03-18T20:34:26.115Z"
 progress:
   total_phases: 6
   completed_phases: 2
-  total_plans: 19
-  completed_plans: 9
+  total_plans: 20
+  completed_plans: 10
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-03-19)
 ## Current Position
 
 Phase: 05 (productivity-widgets) — EXECUTING
-Plan: 1 of 5
+Plan: 2 of 5
 
 ## Performance Metrics
 
@@ -53,6 +53,7 @@ Plan: 1 of 5
 | Phase 02 P02 | 4min | 2 tasks | 8 files |
 | Phase 03 P02 | 5min | 2 tasks | 4 files |
 | Phase 02 P03 | 3min | 2 tasks | 4 files |
+| Phase 05 P01 | 2min | 2 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -85,6 +86,10 @@ Recent decisions affecting current work:
 - [03-02]: Drag handle on button element with listeners, not whole row, to prevent accidental drags
 - [03-02]: getProjection local to PageTree since only used in drag context
 - [03-02]: Leaf delete instant, parent delete shows confirmation dialog
+- [Phase 05]: Widget stores persist via db.settings key-value pairs, not separate Dexie tables
+- [Phase 05]: Pomodoro timer resets on page load (only durations and session count persist)
+- [Phase 05]: Journal entries are NoteRecords tracked by ID list in settings
+- [Phase 05]: Widget section collapse state is ephemeral (resets on page load)
 
 ### Pending Todos
 
@@ -97,6 +102,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-18T20:26:40Z
-Stopped at: Completed 03-02-PLAN.md
+Last session: 2026-03-18T20:34:26.113Z
+Stopped at: Completed 05-01-PLAN.md
 Resume file: None
