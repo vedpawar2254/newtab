@@ -108,6 +108,7 @@ export function TodoItem({ task, onComplete, onDelete, onUpdate }: TodoItemProps
           onBlur={commitEdit}
           onKeyDown={handleEditKeyDown}
           className="flex-1 bg-transparent text-[13px] text-text-primary outline-none border-b border-accent"
+          spellCheck={false}
         />
       ) : (
         <span
@@ -115,33 +116,35 @@ export function TodoItem({ task, onComplete, onDelete, onUpdate }: TodoItemProps
             checked ? 'line-through opacity-50' : ''
           }`}
           onDoubleClick={handleDoubleClick}
+          spellCheck={false}
         >
           {task.title}
         </span>
       )}
 
       {/* Delete button */}
-      {hovered && !checked && (
-        <button
-          onClick={() => onDelete(task.id)}
-          className="w-[20px] h-[20px] flex items-center justify-center text-text-secondary hover:text-destructive transition-colors flex-shrink-0"
-          aria-label={`Delete "${task.title}"`}
-        >
-          <X size={12} />
-        </button>
-      )}
+      <button
+        onClick={() => onDelete(task.id)}
+        className={`w-[20px] h-[20px] flex items-center justify-center text-text-secondary hover:text-destructive transition-colors flex-shrink-0 ${
+          hovered && !checked ? 'opacity-100' : 'opacity-0'
+        }`}
+        aria-label={`Delete "${task.title}"`}
+        tabIndex={hovered && !checked ? 0 : -1}
+      >
+        <X size={12} />
+      </button>
 
-      {/* Drag handle */}
-      {hovered && !checked && (
-        <button
-          {...attributes}
-          {...listeners}
-          className="w-[20px] h-[20px] flex items-center justify-center text-text-secondary hover:text-text-primary cursor-grab active:cursor-grabbing flex-shrink-0"
-          aria-label="Drag to reorder"
-        >
-          <GripVertical size={14} />
-        </button>
-      )}
+      {/* Drag handle — always rendered so drag listeners stay attached */}
+      <button
+        {...attributes}
+        {...listeners}
+        className={`w-[20px] h-[20px] flex items-center justify-center text-text-secondary hover:text-text-primary cursor-grab active:cursor-grabbing flex-shrink-0 transition-opacity ${
+          hovered && !checked ? 'opacity-100' : 'opacity-0'
+        }`}
+        aria-label="Drag to reorder"
+      >
+        <GripVertical size={14} />
+      </button>
     </div>
   );
 }

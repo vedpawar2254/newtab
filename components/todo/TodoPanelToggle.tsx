@@ -10,11 +10,11 @@ export function TodoPanelToggle({ isOpen, onToggle }: TodoPanelToggleProps) {
     <button
       onClick={onToggle}
       aria-label={isOpen ? 'Close todo panel' : 'Open todo panel'}
-      className={`w-[28px] h-[28px] flex items-center justify-center rounded-[4px] transition-colors hover:bg-surface-elevated ${
+      className={`w-[40px] h-[40px] flex items-center justify-center rounded-[8px] transition-colors hover:bg-surface-elevated ${
         isOpen ? 'text-accent' : 'text-text-secondary'
       }`}
     >
-      <CheckSquare size={16} />
+      <CheckSquare size={22} />
     </button>
   );
 }

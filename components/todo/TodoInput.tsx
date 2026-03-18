@@ -30,6 +30,7 @@ export function TodoInput() {
         onChange={(e) => setValue(e.target.value)}
         onKeyDown={handleKeyDown}
         placeholder="Add a todo..."
+        spellCheck={false}
         className="w-full bg-bg border border-border rounded-[6px] px-[16px] py-[8px] text-[13px] text-text-primary placeholder:text-[rgba(255,255,255,0.30)] outline-none focus:border-accent focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg font-mono"
       />
     </div>

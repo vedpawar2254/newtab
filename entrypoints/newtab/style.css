@@ -149,7 +149,7 @@
 }
 
 .ProseMirror ::selection {
-  background: rgba(91, 155, 213, 0.20);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 /* Task list styles */

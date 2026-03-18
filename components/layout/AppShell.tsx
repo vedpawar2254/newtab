@@ -21,6 +21,15 @@ export function AppShell() {
   const isLoading = useUIStore((s) => s.isLoading);
   const activeView = useUIStore((s) => s.activeView);
 
+  // Whiteboard takes over the full viewport — no sidebar, no todo panel
+  if (activeView === 'whiteboard') {
+    return (
+      <div className="h-screen w-screen bg-bg text-text-primary font-mono">
+        <WhiteboardView />
+      </div>
+    );
+  }
+
   return (
     <div className="flex h-screen w-screen bg-bg text-text-primary font-mono">
       <div
@@ -60,13 +69,9 @@ export function AppShell() {
         } ${!focusMode && todoPanelOpen ? 'mr-[280px]' : 'mr-0'}`}
         style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
       >
-        {activeView === 'whiteboard' ? (
-          <WhiteboardView />
-        ) : (
-          <MainContent editor={<Editor />}>
-            {isLoading && <ContentSkeleton />}
-          </MainContent>
-        )}
+        <MainContent editor={<Editor />}>
+          {isLoading && <ContentSkeleton />}
+        </MainContent>
       </div>
 
       <TodoPanel isOpen={todoPanelOpen && !focusMode} />
