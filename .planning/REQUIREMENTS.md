@@ -37,8 +37,8 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **PAGE-02**: User can nest any page inside another page (infinite depth)
 - [x] **PAGE-03**: User can see page hierarchy in collapsible sidebar tree
 - [x] **PAGE-04**: User can rename pages inline
-- [ ] **PAGE-05**: User can delete pages
-- [ ] **PAGE-06**: User can reorder pages via drag-and-drop in sidebar
+- [x] **PAGE-05**: User can delete pages
+- [x] **PAGE-06**: User can reorder pages via drag-and-drop in sidebar
 - [x] **PAGE-07**: Notes-first layout with full editor center stage and sidebar for navigation
 
 ### Todo
@@ -159,8 +159,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PAGE-02 | Phase 3 | Complete |
 | PAGE-03 | Phase 3 | Complete |
 | PAGE-04 | Phase 3 | Complete |
-| PAGE-05 | Phase 3 | Pending |
-| PAGE-06 | Phase 3 | Pending |
+| PAGE-05 | Phase 3 | Complete |
+| PAGE-06 | Phase 3 | Complete |
 | PAGE-07 | Phase 1 | Complete |
 | TODO-01 | Phase 4 | Pending |
 | TODO-02 | Phase 4 | Pending |
