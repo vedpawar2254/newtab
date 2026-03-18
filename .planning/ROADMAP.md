@@ -63,10 +63,11 @@ Plans:
   2. Sidebar displays a collapsible tree showing the full page hierarchy with expand/collapse controls
   3. User can rename pages inline and delete pages from the sidebar
   4. User can drag and drop pages in the sidebar to reorder them or move them under a different parent
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: TBD
+- [ ] 03-01-PLAN.md — Tree utilities, store extensions, and sidebar tree UI (create, navigate, expand/collapse, rename)
+- [ ] 03-02-PLAN.md — Drag-and-drop reordering/nesting with dnd-kit, context menu, and cascade delete
 
 ### Phase 4: Todo + Kanban
 **Goal**: Users have a dedicated always-visible todo panel on the new tab page and can switch to a kanban board view for visual task management
@@ -126,7 +127,7 @@ Note: Phases 4 and 5 depend only on Phase 1 and can be parallelized with Phases 
 |-------|----------------|--------|-----------|
 | 1. Foundation + App Shell | 2/3 | In Progress|  |
 | 2. Core Editor | 0/? | Not started | - |
-| 3. Pages + Navigation | 0/? | Not started | - |
+| 3. Pages + Navigation | 0/2 | Planning complete | - |
 | 4. Todo + Kanban | 0/? | Not started | - |
 | 5. Productivity Widgets | 0/? | Not started | - |
 | 6. UX + Polish | 0/? | Not started | - |
