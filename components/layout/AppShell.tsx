@@ -1,6 +1,7 @@
 import { useSidebarToggle } from '../../hooks/useSidebarToggle';
 import { useTodoPanelToggle } from '../../hooks/useTodoPanelToggle';
 import { useFocusMode } from '../../hooks/useFocusMode';
+import { useKeyboardNav } from '../../hooks/useKeyboardNav';
 import { useUIStore } from '../../lib/stores/ui-store';
 import { Sidebar } from './Sidebar';
 import { SidebarToggle } from './SidebarToggle';
@@ -16,6 +17,7 @@ export function AppShell() {
   const { sidebarOpen, toggleSidebar } = useSidebarToggle();
   const { todoPanelOpen, toggleTodoPanel } = useTodoPanelToggle();
   const { focusMode } = useFocusMode();
+  useKeyboardNav();
   const isLoading = useUIStore((s) => s.isLoading);
   const activeView = useUIStore((s) => s.activeView);
 

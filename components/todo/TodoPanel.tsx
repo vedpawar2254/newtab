@@ -83,6 +83,7 @@ export function TodoPanel({ isOpen }: TodoPanelProps) {
 
   return (
     <aside
+      data-region="panels"
       className={`fixed right-0 top-0 w-[280px] h-screen bg-surface border-l border-border flex flex-col transition-transform duration-[250ms] ease-in-out z-30 ${
         isOpen ? 'translate-x-0' : 'translate-x-full'
       }`}

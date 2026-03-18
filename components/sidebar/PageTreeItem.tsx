@@ -132,6 +132,77 @@ export function PageTreeItem({
     [id, setRenamingId],
   );
 
+  const handleTreeKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (isRenaming) return;
+
+      const currentEl = e.currentTarget as HTMLElement;
+      const treeContainer = currentEl.closest('[role="tree"]');
+      if (!treeContainer) return;
+
+      const allItems = Array.from(
+        treeContainer.querySelectorAll<HTMLElement>('[data-tree-item-id]')
+      );
+      const currentIndex = allItems.indexOf(currentEl);
+
+      switch (e.key) {
+        case 'ArrowDown': {
+          e.preventDefault();
+          const next = allItems[currentIndex + 1];
+          if (next) next.focus();
+          break;
+        }
+        case 'ArrowUp': {
+          e.preventDefault();
+          const prev = allItems[currentIndex - 1];
+          if (prev) prev.focus();
+          break;
+        }
+        case 'ArrowRight': {
+          e.preventDefault();
+          if (childCount > 0 && isCollapsed) {
+            toggleCollapsed(id);
+          } else if (childCount > 0 && !isCollapsed) {
+            const next = allItems[currentIndex + 1];
+            if (next) next.focus();
+          }
+          break;
+        }
+        case 'ArrowLeft': {
+          e.preventDefault();
+          if (childCount > 0 && !isCollapsed) {
+            toggleCollapsed(id);
+          } else {
+            for (let i = currentIndex - 1; i >= 0; i--) {
+              const d = parseInt(allItems[i].getAttribute('data-tree-depth') ?? '0', 10);
+              if (d === depth - 1) {
+                allItems[i].focus();
+                break;
+              }
+            }
+          }
+          break;
+        }
+        case 'Enter': {
+          e.preventDefault();
+          setActiveNote(id);
+          break;
+        }
+        case 'Home': {
+          e.preventDefault();
+          if (allItems.length > 0) allItems[0].focus();
+          break;
+        }
+        case 'End': {
+          e.preventDefault();
+          if (allItems.length > 0) allItems[allItems.length - 1].focus();
+          break;
+        }
+      }
+    },
+    [id, childCount, isCollapsed, isRenaming, depth, toggleCollapsed, setActiveNote],
+  );
+
   const hasChildren = childCount > 0;
   const isExpanded = hasChildren && !isCollapsed;
 
@@ -145,7 +216,10 @@ export function PageTreeItem({
       tabIndex={0}
       aria-expanded={hasChildren ? isExpanded : undefined}
       aria-selected={isActive}
+      data-tree-item-id={id}
+      data-tree-depth={depth}
       onClick={handleRowClick}
+      onKeyDown={handleTreeKeyDown}
       style={{
         ...style,
         paddingLeft: `${depth * 16}px`,

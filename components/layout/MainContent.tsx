@@ -14,6 +14,7 @@ export function MainContent({ children, editor }: MainContentProps) {
 
   return (
     <main
+      data-region="editor"
       className={`flex-1 bg-bg min-h-screen ${
         activeView === 'kanban' ? '' : 'pt-[48px] px-[32px]'
       }`}
@@ -24,7 +25,9 @@ export function MainContent({ children, editor }: MainContentProps) {
         ) : activeView === 'kanban' ? (
           <KanbanBoard />
         ) : activeNoteId && editor ? (
-          editor
+          <div key={activeNoteId} className="page-enter">
+            {editor}
+          </div>
         ) : (
           <div className="flex flex-col items-center justify-center gap-[16px] min-h-[60vh]">
             <FileText

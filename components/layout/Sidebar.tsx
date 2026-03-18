@@ -21,6 +21,7 @@ export function Sidebar({ isOpen, onToggle, children }: SidebarProps) {
 
   return (
     <aside
+      data-region="sidebar"
       className={`fixed left-0 top-0 w-[240px] h-screen bg-surface border-r border-border flex flex-col transition-transform duration-[250ms] ease-in-out ${
         isOpen ? 'translate-x-0' : '-translate-x-full'
       }`}

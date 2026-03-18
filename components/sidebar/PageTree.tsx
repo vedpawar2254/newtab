@@ -216,7 +216,7 @@ export function PageTree() {
       onDragCancel={handleDragCancel}
     >
       <SortableContext items={sortedIds} strategy={verticalListSortingStrategy}>
-        <div role="tree" className="flex flex-col">
+        <div role="tree" aria-label="Page tree" className="flex flex-col">
           {flattenedItems.map((item) => (
             <PageTreeItem
               key={item.id}
