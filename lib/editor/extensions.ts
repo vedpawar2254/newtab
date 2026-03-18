@@ -9,8 +9,12 @@ import { TaskItem } from '@tiptap/extension-task-item';
 import { Image } from '@tiptap/extension-image';
 import { Placeholder } from '@tiptap/extension-placeholder';
 import { Underline } from '@tiptap/extension-underline';
+import FileHandler from '@tiptap/extension-file-handler';
+import { ReactNodeViewRenderer } from '@tiptap/react';
 import { common, createLowlight } from 'lowlight';
 import type { Extensions } from '@tiptap/react';
+import { CodeBlockView } from '../../components/editor/CodeBlockView';
+import { BookmarkCard } from './extensions/bookmark-card';
 
 export const lowlightInstance = createLowlight(common);
 
@@ -22,6 +26,10 @@ export function createExtensions(): Extensions {
     Underline,
     CodeBlockLowlight.configure({
       lowlight: lowlightInstance,
+    }).extend({
+      addNodeView() {
+        return ReactNodeViewRenderer(CodeBlockView);
+      },
     }),
     Table.configure({
       resizable: true,
@@ -41,5 +49,35 @@ export function createExtensions(): Extensions {
     Placeholder.configure({
       placeholder: 'Type / for commands...',
     }),
+    FileHandler.configure({
+      allowedMimeTypes: ['image/png', 'image/jpeg', 'image/gif', 'image/webp'],
+      onPaste: (editor, files) => {
+        files.forEach((file) => {
+          const reader = new FileReader();
+          reader.onload = () => {
+            editor
+              .chain()
+              .focus()
+              .setImage({ src: reader.result as string })
+              .run();
+          };
+          reader.readAsDataURL(file);
+        });
+      },
+      onDrop: (editor, files, pos) => {
+        files.forEach((file) => {
+          const reader = new FileReader();
+          reader.onload = () => {
+            editor
+              .chain()
+              .focus()
+              .setImage({ src: reader.result as string })
+              .run();
+          };
+          reader.readAsDataURL(file);
+        });
+      },
+    }),
+    BookmarkCard,
   ];
 }
