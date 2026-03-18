@@ -12,7 +12,10 @@ The editor and note-taking experience must feel as powerful and polished as Noti
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] Nested pages — any note can contain sub-notes, infinite depth (Validated in Phase 3: Pages + Navigation)
+- [x] Notes-first layout — full editor center stage, sidebar for navigation (Validated in Phase 1: Foundation + App Shell)
+- [x] Dark theme (mandatory, default and only theme for v1) (Validated in Phase 1: Foundation + App Shell)
+- [x] Local-only persistence via Chrome storage APIs (Validated in Phase 1: Foundation + App Shell)
 
 ### Active
 
@@ -82,4 +85,4 @@ The editor and note-taking experience must feel as powerful and polished as Noti
 | Wiki-style backlinks over visual mind maps | More practical for daily use, lower complexity than full graph view | — Pending |
 
 ---
-*Last updated: 2026-03-19 after initialization*
+*Last updated: 2026-03-18 after Phase 3 completion*
