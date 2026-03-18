@@ -23,12 +23,12 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **EDIT-03**: User can create headings (H1, H2, H3) via toolbar or markdown shortcuts
 - [x] **EDIT-04**: User can create ordered and unordered lists
 - [x] **EDIT-05**: User can create checkbox/todo items inside any note
-- [ ] **EDIT-06**: User can insert syntax-highlighted code blocks with language selector
-- [ ] **EDIT-07**: User can create and edit inline tables (add/remove rows and columns)
+- [x] **EDIT-06**: User can insert syntax-highlighted code blocks with language selector
+- [x] **EDIT-07**: User can create and edit inline tables (add/remove rows and columns)
 - [x] **EDIT-08**: User can embed images inline in notes
 - [x] **EDIT-09**: User can embed links with preview cards
 - [x] **EDIT-10**: User can drag and reorder blocks within a note
-- [ ] **EDIT-11**: User can use slash command menu to insert any block type
+- [x] **EDIT-11**: User can use slash command menu to insert any block type
 - [x] **EDIT-12**: Editor supports keyboard shortcuts for all common formatting actions
 
 ### Pages
@@ -148,12 +148,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | EDIT-03 | Phase 2 | Complete |
 | EDIT-04 | Phase 2 | Complete |
 | EDIT-05 | Phase 2 | Complete |
-| EDIT-06 | Phase 2 | Pending |
-| EDIT-07 | Phase 2 | Pending |
+| EDIT-06 | Phase 2 | Complete |
+| EDIT-07 | Phase 2 | Complete |
 | EDIT-08 | Phase 2 | Complete |
 | EDIT-09 | Phase 2 | Complete |
 | EDIT-10 | Phase 2 | Complete |
-| EDIT-11 | Phase 2 | Pending |
+| EDIT-11 | Phase 2 | Complete |
 | EDIT-12 | Phase 2 | Complete |
 | PAGE-01 | Phase 3 | Complete |
 | PAGE-02 | Phase 3 | Complete |

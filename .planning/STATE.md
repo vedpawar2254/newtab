@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-04-PLAN.md
-last_updated: "2026-03-18T20:27:36.923Z"
+stopped_at: Completed 02-03-PLAN.md
+last_updated: "2026-03-18T20:28:03.606Z"
 progress:
   total_phases: 6
   completed_phases: 2
@@ -50,6 +50,9 @@ Plan: 2 of 2 (DONE)
 | Phase 03 P01 | 6min | 2 tasks | 8 files |
 | Phase 02 P01 | 6min | 3 tasks | 10 files |
 | Phase 02 P04 | 4min | 2 tasks | 7 files |
+| Phase 02 P02 | 4min | 2 tasks | 8 files |
+| Phase 03 P02 | 5min | 2 tasks | 4 files |
+| Phase 02 P03 | 3min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -74,9 +77,14 @@ Recent decisions affecting current work:
 - [02-01]: Single editor instance kept alive, content swapped via setContent on note switch
 - [02-01]: Schema versioning wraps content with schemaVersion for safe future migration
 - [02-01]: 300ms debounce in autosave hook in addition to StorageService debounce
+- [02-02]: BubbleMenu shouldShow excludes codeBlock and image nodes
+- [02-02]: Slash menu uses explicit icon map for tree-shaking instead of import * from lucide-react
 - [02-03]: TableControls uses getBoundingClientRect for absolute positioning (CSS pseudo-elements cannot trigger commands)
 - [Phase 02-04]: OG metadata fetched via chrome.runtime.sendMessage to background service worker for CORS bypass
 - [Phase 02-04]: DragHandle export is DragHandle not DragHandleReact in tiptap v3
+- [03-02]: Drag handle on button element with listeners, not whole row, to prevent accidental drags
+- [03-02]: getProjection local to PageTree since only used in drag context
+- [03-02]: Leaf delete instant, parent delete shows confirmation dialog
 
 ### Pending Todos
 
@@ -89,6 +97,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-18T20:27:36.919Z
-Stopped at: Completed 02-04-PLAN.md
+Last session: 2026-03-18T20:26:40Z
+Stopped at: Completed 03-02-PLAN.md
 Resume file: None
