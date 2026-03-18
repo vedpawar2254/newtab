@@ -23,8 +23,8 @@ See: .planning/PROJECT.md (updated 2026-03-19)
 
 ## Current Position
 
-Phase: 06 (UX + Polish) — EXECUTING
-Plan: 2 of 2
+Phase: 06 (UX + Polish) — COMPLETE
+Plan: 2 of 2 (all complete)
 
 ## Performance Metrics
 
@@ -115,6 +115,9 @@ Recent decisions affecting current work:
 - [Phase 06]: FlexSearch Document index with forward tokenizer for instant prefix search
 - [Phase 06]: cmdk shouldFilter=false with manual FlexSearch search for full control
 - [Phase 06]: Search index rebuilt on palette open rather than maintained continuously
+- [Phase 06-02]: useFocusMode called in AppShell (inside ToastProvider) rather than App.tsx to avoid context errors
+- [Phase 06-02]: ArrowLeft in tree navigates to parent by walking backwards through items matching depth-1
+- [Phase 06-02]: Page-enter animation uses key={activeNoteId} wrapper for automatic React remount
 
 ### Pending Todos
 
@@ -127,6 +130,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-18T20:48:12.820Z
-Stopped at: Completed 06-01-PLAN.md
+Last session: 2026-03-18T20:47:15Z
+Stopped at: Completed 06-02-PLAN.md
 Resume file: None
