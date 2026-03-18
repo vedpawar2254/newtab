@@ -114,11 +114,11 @@ Plans:
   3. User can toggle focus mode which hides sidebar, todo panel, and quotes -- showing only the editor
   4. Full keyboard navigation works across all major surfaces (sidebar, editor, panels, command palette)
   5. All interactions across the app have smooth, polished animations and transitions
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 06-01: TBD
-- [ ] 06-02: TBD
+- [ ] 06-01-PLAN.md — Command palette (Cmd+K) with cmdk, FlexSearch full-text search, recents, and command execution
+- [ ] 06-02-PLAN.md — Focus mode (Cmd+.), keyboard navigation (arrow keys, Tab regions), and animation polish
 
 ## Progress
 
@@ -133,4 +133,4 @@ Note: Phases 4 and 5 depend only on Phase 1 and can be parallelized with Phases 
 | 3. Pages + Navigation | 1/2 | In Progress|  |
 | 4. Todo + Kanban | 0/? | Not started | - |
 | 5. Productivity Widgets | 0/? | Not started | - |
-| 6. UX + Polish | 0/? | Not started | - |
+| 6. UX + Polish | 0/2 | Planning complete | - |
