@@ -15,11 +15,11 @@ export function MainContent({ children, editor }: MainContentProps) {
   return (
     <main
       data-region="editor"
-      className={`flex-1 bg-bg min-h-screen ${
+      className={`flex-1 bg-bg overflow-y-auto h-screen ${
         activeView === 'kanban' ? '' : 'pt-[48px] px-[32px]'
       }`}
     >
-      <div className={activeView === 'kanban' ? 'h-full' : 'max-w-[720px] mx-auto'}>
+      <div className={activeView === 'kanban' ? 'h-full' : 'max-w-[720px] mx-auto min-h-[calc(100vh+200px)] pb-[200px]'}>
         {isLoading ? (
           children
         ) : activeView === 'kanban' ? (
