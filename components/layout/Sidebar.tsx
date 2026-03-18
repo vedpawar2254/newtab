@@ -1,3 +1,4 @@
+import { Columns3 } from 'lucide-react';
 import { useUIStore } from '../../lib/stores/ui-store';
 import { NewPageButton } from '../sidebar/NewPageButton';
 import { PageTree } from '../sidebar/PageTree';
@@ -16,6 +17,7 @@ interface SidebarProps {
 
 export function Sidebar({ isOpen, onToggle, children }: SidebarProps) {
   const isLoading = useUIStore((s) => s.isLoading);
+  const activeView = useUIStore((s) => s.activeView);
 
   return (
     <aside
@@ -53,6 +55,22 @@ export function Sidebar({ isOpen, onToggle, children }: SidebarProps) {
             <JournalSection />
             <div className="border-t border-border px-[8px] py-[4px]">
               <WhiteboardButton />
+            </div>
+            <div className="border-t border-border px-[8px] py-[4px]">
+              <button
+                onClick={() => {
+                  useUIStore.getState().setActiveView('kanban');
+                  useUIStore.getState().setActiveNote(null);
+                }}
+                className={`flex items-center gap-[8px] w-full px-[8px] py-[6px] rounded-[4px] text-[14px] transition-colors duration-[150ms] ${
+                  activeView === 'kanban'
+                    ? 'text-accent bg-active-item-bg'
+                    : 'text-text-secondary hover:bg-surface-elevated'
+                }`}
+              >
+                <Columns3 size={16} />
+                Kanban Board
+              </button>
             </div>
           </div>
         )}

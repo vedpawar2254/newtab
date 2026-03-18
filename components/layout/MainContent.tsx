@@ -1,5 +1,6 @@
 import { FileText } from 'lucide-react';
 import { useUIStore } from '../../lib/stores/ui-store';
+import { KanbanBoard } from '../kanban/KanbanBoard';
 
 interface MainContentProps {
   children?: React.ReactNode;
@@ -9,12 +10,19 @@ interface MainContentProps {
 export function MainContent({ children, editor }: MainContentProps) {
   const isLoading = useUIStore((s) => s.isLoading);
   const activeNoteId = useUIStore((s) => s.activeNoteId);
+  const activeView = useUIStore((s) => s.activeView);
 
   return (
-    <main className="flex-1 bg-bg pt-[48px] px-[32px] min-h-screen">
-      <div className="max-w-[720px] mx-auto">
+    <main
+      className={`flex-1 bg-bg min-h-screen ${
+        activeView === 'kanban' ? '' : 'pt-[48px] px-[32px]'
+      }`}
+    >
+      <div className={activeView === 'kanban' ? 'h-full' : 'max-w-[720px] mx-auto'}>
         {isLoading ? (
           children
+        ) : activeView === 'kanban' ? (
+          <KanbanBoard />
         ) : activeNoteId && editor ? (
           editor
         ) : (

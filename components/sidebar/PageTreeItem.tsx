@@ -26,6 +26,7 @@ export function PageTreeItem({
   isRenaming,
 }: PageTreeItemProps) {
   const setActiveNote = useUIStore((s) => s.setActiveNote);
+  const setActiveView = useUIStore((s) => s.setActiveView);
   const toggleCollapsed = useUIStore((s) => s.toggleCollapsed);
   const setRenamingId = useUIStore((s) => s.setRenamingId);
   const renameNote = useNotesStore((s) => s.renameNote);
@@ -96,8 +97,9 @@ export function PageTreeItem({
         return;
       }
       setActiveNote(id);
+      setActiveView('editor');
     },
-    [id, setActiveNote],
+    [id, setActiveNote, setActiveView],
   );
 
   const handleChevronClick = useCallback(
@@ -113,12 +115,13 @@ export function PageTreeItem({
       e.stopPropagation();
       const note = await createNote('Untitled', id);
       setActiveNote(note.id);
+      setActiveView('editor');
       setRenamingId(note.id);
       if (isCollapsed) {
         toggleCollapsed(id);
       }
     },
-    [id, createNote, setActiveNote, setRenamingId, isCollapsed, toggleCollapsed],
+    [id, createNote, setActiveNote, setActiveView, setRenamingId, isCollapsed, toggleCollapsed],
   );
 
   const handleDoubleClick = useCallback(
