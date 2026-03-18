@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 05-02-PLAN.md
-last_updated: "2026-03-18T20:40:10.759Z"
+stopped_at: Completed 04-01-PLAN.md
+last_updated: "2026-03-18T20:40:15.662Z"
 progress:
   total_phases: 6
   completed_phases: 3
@@ -99,6 +99,9 @@ Recent decisions affecting current work:
 - [Phase 05]: Excalidraw used for whiteboard with React.lazy loading and 300ms debounced Dexie persistence
 - [Phase 05]: Notification fired from store onSessionComplete for reliability
 - [Phase 04]: Column IDs use col- prefix and task IDs use task- prefix to avoid dnd-kit collision
+- [Phase 04]: Columns stored in settings table as kanban-columns key (KanbanState wrapper)
+- [Phase 04]: completeTask uses max-order column, uncompleteTask uses min-order column
+- [Phase 04]: Column deletion migrates tasks to first remaining column, prevents deleting last column
 
 ### Pending Todos
 
@@ -111,6 +114,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-18T20:38:11.142Z
-Stopped at: Completed 05-02-PLAN.md
+Last session: 2026-03-18T20:40:15.659Z
+Stopped at: Completed 04-01-PLAN.md
 Resume file: None

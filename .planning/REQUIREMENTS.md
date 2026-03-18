@@ -44,18 +44,18 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Todo
 
 - [ ] **TODO-01**: User can see a dedicated todo panel on the new tab page
-- [ ] **TODO-02**: User can add, edit, complete, and delete todos from the panel
-- [ ] **TODO-03**: User can mark todos as complete with checkbox toggle
-- [ ] **TODO-04**: Todo panel persists state across tab opens
+- [x] **TODO-02**: User can add, edit, complete, and delete todos from the panel
+- [x] **TODO-03**: User can mark todos as complete with checkbox toggle
+- [x] **TODO-04**: Todo panel persists state across tab opens
 - [ ] **TODO-05**: User can reorder todos via drag-and-drop
 
 ### Kanban
 
 - [ ] **KANB-01**: User can view todos/tasks in a kanban board layout
-- [ ] **KANB-02**: User can create kanban columns (e.g., To Do, In Progress, Done)
+- [x] **KANB-02**: User can create kanban columns (e.g., To Do, In Progress, Done)
 - [ ] **KANB-03**: User can drag cards between columns
-- [ ] **KANB-04**: User can add, edit, and delete kanban cards
-- [ ] **KANB-05**: Kanban state persists across tab opens
+- [x] **KANB-04**: User can add, edit, and delete kanban cards
+- [x] **KANB-05**: Kanban state persists across tab opens
 
 ### Whiteboard
 
@@ -163,15 +163,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PAGE-06 | Phase 3 | Complete |
 | PAGE-07 | Phase 1 | Complete |
 | TODO-01 | Phase 4 | Pending |
-| TODO-02 | Phase 4 | Pending |
-| TODO-03 | Phase 4 | Pending |
-| TODO-04 | Phase 4 | Pending |
+| TODO-02 | Phase 4 | Complete |
+| TODO-03 | Phase 4 | Complete |
+| TODO-04 | Phase 4 | Complete |
 | TODO-05 | Phase 4 | Pending |
 | KANB-01 | Phase 4 | Pending |
-| KANB-02 | Phase 4 | Pending |
+| KANB-02 | Phase 4 | Complete |
 | KANB-03 | Phase 4 | Pending |
-| KANB-04 | Phase 4 | Pending |
-| KANB-05 | Phase 4 | Pending |
+| KANB-04 | Phase 4 | Complete |
+| KANB-05 | Phase 4 | Complete |
 | DRAW-01 | Phase 5 | Complete |
 | DRAW-02 | Phase 5 | Complete |
 | DRAW-03 | Phase 5 | Complete |
