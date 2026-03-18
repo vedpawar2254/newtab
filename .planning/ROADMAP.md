@@ -97,12 +97,14 @@ Plans:
   3. A new dated journal note is auto-created each day with prompts, and past entries are accessible
   4. A motivational quote appears on the page and rotates daily or on refresh from a built-in library
   5. User can open a whiteboard canvas to draw shapes, lines, freehand, and text -- data persists and loads lazily
-**Plans**: TBD
+**Plans**: 5 plans
 
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
-- [ ] 05-03: TBD
+- [ ] 05-01-PLAN.md — Foundation: widget types, Zustand stores, CSS tokens, quotes library, CollapsibleSection, QuoteFooter
+- [ ] 05-02-PLAN.md — Pomodoro timer: SVG ring, start/pause/reset controls, duration config, notifications, audio chime
+- [ ] 05-03-PLAN.md — Habit tracker: checklist with checkboxes, 7-day dots, streak counts, add/edit/remove
+- [ ] 05-04-PLAN.md — Whiteboard: Excalidraw lazy-loaded, dark mode, scene persistence, view switching
+- [ ] 05-05-PLAN.md — Journal section + sidebar integration: wire all widgets into Sidebar and AppShell
 
 ### Phase 6: UX + Polish
 **Goal**: Users can navigate the entire app efficiently with a command palette, search across all notes, enter focus mode, and experience polished keyboard-driven interactions throughout
@@ -132,5 +134,5 @@ Note: Phases 4 and 5 depend only on Phase 1 and can be parallelized with Phases 
 | 2. Core Editor | 4/5 | In Progress|  |
 | 3. Pages + Navigation | 1/2 | In Progress|  |
 | 4. Todo + Kanban | 0/? | Not started | - |
-| 5. Productivity Widgets | 0/? | Not started | - |
+| 5. Productivity Widgets | 0/5 | Planning complete | - |
 | 6. UX + Polish | 0/2 | Planning complete | - |
