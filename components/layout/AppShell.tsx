@@ -6,10 +6,12 @@ import { MainContent } from './MainContent';
 import { SidebarSkeleton } from '../skeleton/SidebarSkeleton';
 import { ContentSkeleton } from '../skeleton/ContentSkeleton';
 import { Editor } from '../editor/Editor';
+import { WhiteboardView } from '../widgets/WhiteboardView';
 
 export function AppShell() {
   const { sidebarOpen, toggleSidebar } = useSidebarToggle();
   const isLoading = useUIStore((s) => s.isLoading);
+  const activeView = useUIStore((s) => s.activeView);
 
   return (
     <div className="flex h-screen w-screen bg-bg text-text-primary font-mono">
@@ -29,9 +31,13 @@ export function AppShell() {
           sidebarOpen ? 'ml-[240px]' : 'ml-0'
         }`}
       >
-        <MainContent editor={<Editor />}>
-          {isLoading && <ContentSkeleton />}
-        </MainContent>
+        {activeView === 'whiteboard' ? (
+          <WhiteboardView />
+        ) : (
+          <MainContent editor={<Editor />}>
+            {isLoading && <ContentSkeleton />}
+          </MainContent>
+        )}
       </div>
     </div>
   );

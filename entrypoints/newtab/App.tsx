@@ -6,6 +6,9 @@ import { ToastContainer } from '../../components/feedback/ToastContainer';
 import { SaveStatus } from '../../components/feedback/SaveStatus';
 import { useUIStore } from '../../lib/stores/ui-store';
 import { useNotesStore } from '../../lib/stores/notes-store';
+import { usePomodoroStore } from '../../lib/stores/pomodoro-store';
+import { useHabitStore } from '../../lib/stores/habit-store';
+import { useJournalStore } from '../../lib/stores/journal-store';
 import { storageService } from '../../lib/storage/storage-service';
 
 export function App() {
@@ -16,6 +19,13 @@ export function App() {
   useEffect(() => {
     const init = async () => {
       await initialize();
+
+      // Initialize widget stores in parallel
+      await Promise.all([
+        usePomodoroStore.getState().loadFromStorage(),
+        useHabitStore.getState().loadFromStorage(),
+        useJournalStore.getState().loadRecentEntries(),
+      ]);
 
       // Auto-select or create a note so the editor is visible
       const state = useNotesStore.getState();
