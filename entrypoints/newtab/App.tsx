@@ -9,6 +9,7 @@ import { useNotesStore } from '../../lib/stores/notes-store';
 import { usePomodoroStore } from '../../lib/stores/pomodoro-store';
 import { useHabitStore } from '../../lib/stores/habit-store';
 import { useJournalStore } from '../../lib/stores/journal-store';
+import { useTaskStore } from '../../lib/stores/task-store';
 import { storageService } from '../../lib/storage/storage-service';
 
 export function App() {
@@ -20,11 +21,13 @@ export function App() {
     const init = async () => {
       await initialize();
 
-      // Initialize widget stores in parallel
+      // Initialize widget stores and task store in parallel
       await Promise.all([
         usePomodoroStore.getState().loadFromStorage(),
         useHabitStore.getState().loadFromStorage(),
         useJournalStore.getState().loadRecentEntries(),
+        useTaskStore.getState().initialize(),
+        useUIStore.getState().loadTodoPanelState(),
       ]);
 
       // Auto-select or create a note so the editor is visible
