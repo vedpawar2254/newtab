@@ -54,6 +54,16 @@
   --color-habit-complete: #30A46C;
   --color-habit-incomplete: rgba(255, 255, 255, 0.12);
   --color-habit-streak: #F5A623;
+
+  --spacing-todo-panel: 280px;
+  --spacing-kanban-column: 280px;
+
+  /* Phase 6 command palette additions */
+  --color-backdrop: rgba(0, 0, 0, 0.60);
+  --color-search-highlight: rgba(91, 155, 213, 0.20);
+  --color-shortcut-badge: rgba(255, 255, 255, 0.08);
+  --spacing-palette: 560px;
+  --spacing-palette-input: 48px;
 }
 
 /* ===== Tiptap / ProseMirror Editor Styles ===== */
