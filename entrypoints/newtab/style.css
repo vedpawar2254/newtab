@@ -343,11 +343,16 @@ li[data-type="taskItem"][data-checked="true"] > div {
   animation: shimmer 1.5s ease-in-out infinite;
 }
 
-/* Focus ring (global) */
+/* Focus ring (global — exclude editor) */
 *:focus-visible {
   outline: 2px solid #5B9BD5;
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+.ProseMirror:focus-visible,
+.ProseMirror:focus {
+  outline: none;
 }
 
 /* Command palette items use highlight background instead */
