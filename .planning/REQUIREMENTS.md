@@ -59,11 +59,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Whiteboard
 
-- [ ] **DRAW-01**: User can open a whiteboard canvas for freeform drawing
-- [ ] **DRAW-02**: User can draw shapes, lines, and freehand on the canvas
-- [ ] **DRAW-03**: User can add text to the whiteboard
-- [ ] **DRAW-04**: Whiteboard data persists across tab opens
-- [ ] **DRAW-05**: Whiteboard loads lazily (does not impact initial page load)
+- [x] **DRAW-01**: User can open a whiteboard canvas for freeform drawing
+- [x] **DRAW-02**: User can draw shapes, lines, and freehand on the canvas
+- [x] **DRAW-03**: User can add text to the whiteboard
+- [x] **DRAW-04**: Whiteboard data persists across tab opens
+- [x] **DRAW-05**: Whiteboard loads lazily (does not impact initial page load)
 
 ### Productivity
 
@@ -172,11 +172,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | KANB-03 | Phase 4 | Pending |
 | KANB-04 | Phase 4 | Pending |
 | KANB-05 | Phase 4 | Pending |
-| DRAW-01 | Phase 5 | Pending |
-| DRAW-02 | Phase 5 | Pending |
-| DRAW-03 | Phase 5 | Pending |
-| DRAW-04 | Phase 5 | Pending |
-| DRAW-05 | Phase 5 | Pending |
+| DRAW-01 | Phase 5 | Complete |
+| DRAW-02 | Phase 5 | Complete |
+| DRAW-03 | Phase 5 | Complete |
+| DRAW-04 | Phase 5 | Complete |
+| DRAW-05 | Phase 5 | Complete |
 | PROD-01 | Phase 5 | Pending |
 | PROD-02 | Phase 5 | Pending |
 | PROD-03 | Phase 5 | Pending |
