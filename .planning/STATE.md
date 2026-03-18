@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 04-01-PLAN.md
-last_updated: "2026-03-18T20:40:15.662Z"
+stopped_at: Completed 05-05-PLAN.md
+last_updated: "2026-03-18T20:42:38.618Z"
 progress:
   total_phases: 6
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 20
-  completed_plans: 15
+  completed_plans: 16
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-19)
 
 **Core value:** The editor and note-taking experience must feel as powerful and polished as Notion -- rich text with markdown shortcuts, nested pages, and seamless organization.
-**Current focus:** Phase 04 — todo-kanban
+**Current focus:** Phase 06 — UX + Polish
 
 ## Current Position
 
-Phase: 04 (todo-kanban) — EXECUTING
-Plan: 2 of 3
+Phase: 06 (UX + Polish) — EXECUTING
+Plan: 1 of 2
 
 ## Performance Metrics
 
@@ -59,6 +59,7 @@ Plan: 2 of 3
 | Phase 05 P04 | 1min | 1 tasks | 5 files |
 | Phase 05 P02 | 2min | 2 tasks | 5 files |
 | Phase 04 P01 | 4min | 2 tasks | 4 files |
+| Phase 05 P05 | 4min | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -98,6 +99,9 @@ Recent decisions affecting current work:
 - [Phase 02-05]: Test editor created with createExtensions() outside React using @tiptap/core Editor directly
 - [Phase 05]: Excalidraw used for whiteboard with React.lazy loading and 300ms debounced Dexie persistence
 - [Phase 05]: Notification fired from store onSessionComplete for reliability
+- [Phase 05-05]: Widget order in sidebar: Pomodoro, Habits, Journal, Whiteboard button (per UI-SPEC)
+- [Phase 05-05]: QuoteFooter pinned outside scrollable area at sidebar bottom
+- [Phase 05-05]: Widget stores initialize in parallel via Promise.all after note store init
 - [Phase 04]: Column IDs use col- prefix and task IDs use task- prefix to avoid dnd-kit collision
 - [Phase 04]: Columns stored in settings table as kanban-columns key (KanbanState wrapper)
 - [Phase 04]: completeTask uses max-order column, uncompleteTask uses min-order column
@@ -114,6 +118,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-18T20:40:15.659Z
-Stopped at: Completed 04-01-PLAN.md
+Last session: 2026-03-19T00:00:00Z
+Stopped at: Completed 05-05-PLAN.md
 Resume file: None

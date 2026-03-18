@@ -73,9 +73,9 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **PROD-04**: User can track daily habits with checkboxes
 - [x] **PROD-05**: Habit tracker shows streak count for each habit
 - [x] **PROD-06**: User can add, edit, and remove habits
-- [ ] **PROD-07**: Daily journal auto-creates a dated note each day
-- [ ] **PROD-08**: Daily journal includes reflection prompts
-- [ ] **PROD-09**: User can access past journal entries
+- [x] **PROD-07**: Daily journal auto-creates a dated note each day
+- [x] **PROD-08**: Daily journal includes reflection prompts
+- [x] **PROD-09**: User can access past journal entries
 
 ### Quotes
 
@@ -183,9 +183,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PROD-04 | Phase 5 | Complete |
 | PROD-05 | Phase 5 | Complete |
 | PROD-06 | Phase 5 | Complete |
-| PROD-07 | Phase 5 | Pending |
-| PROD-08 | Phase 5 | Pending |
-| PROD-09 | Phase 5 | Pending |
+| PROD-07 | Phase 5 | Complete |
+| PROD-08 | Phase 5 | Complete |
+| PROD-09 | Phase 5 | Complete |
 | QUOT-01 | Phase 5 | Complete |
 | QUOT-02 | Phase 5 | Complete |
 | QUOT-03 | Phase 5 | Complete |
