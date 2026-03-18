@@ -207,6 +207,33 @@ li[data-type="taskItem"][data-checked="true"] > div {
   font-weight: 600;
 }
 
+.ProseMirror table td,
+.ProseMirror table th {
+  min-width: 80px;
+}
+
+.ProseMirror .tableWrapper {
+  position: relative;
+  margin: 8px 0;
+  border-radius: 4px;
+  overflow: visible;
+}
+
+.ProseMirror td.selectedCell,
+.ProseMirror th.selectedCell {
+  background: rgba(91, 155, 213, 0.10);
+}
+
+.ProseMirror .column-resize-handle {
+  background: rgba(91, 155, 213, 0.40);
+  width: 3px;
+  position: absolute;
+  right: -1px;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
 /* Syntax highlighting token classes */
 .hljs-keyword { color: #C586C0; }
 .hljs-string { color: #CE9178; }
@@ -266,6 +293,36 @@ li[data-type="taskItem"][data-checked="true"] > div {
 @keyframes fade-out {
   from { opacity: 1; }
   to { opacity: 0; }
+}
+
+/* Image block styles */
+.ProseMirror img {
+  max-width: 100%;
+  border-radius: 4px;
+  margin: 8px auto;
+  display: block;
+}
+
+.ProseMirror img.ProseMirror-selectednode {
+  outline: 2px solid #5B9BD5;
+}
+
+/* Drop cursor indicator */
+.ProseMirror .ProseMirror-dropcursor {
+  border-color: #5B9BD5;
+  border-top: 2px solid #5B9BD5;
+}
+
+/* Bookmark card shimmer */
+.bookmark-shimmer {
+  background: linear-gradient(
+    90deg,
+    #252525 25%,
+    #2F2F2F 50%,
+    #252525 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

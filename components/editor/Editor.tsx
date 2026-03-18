@@ -5,6 +5,8 @@ import { useEditorAutosave } from '../../lib/hooks/use-editor-autosave';
 import { useNoteLoader } from '../../lib/hooks/use-note-loader';
 import { EditorTitle } from './EditorTitle';
 import { BubbleToolbar } from './BubbleToolbar';
+import { DragHandle } from './DragHandle';
+import { TableControls } from './TableControls';
 import { useUIStore } from '../../lib/stores/ui-store';
 import { useNotesStore } from '../../lib/stores/notes-store';
 
@@ -58,6 +60,8 @@ export function Editor() {
         onTitleChange={handleTitleChange}
       />
       {editor && <BubbleToolbar editor={editor} />}
+      {editor && <DragHandle editor={editor} />}
+      {editor && <TableControls editor={editor} />}
       <EditorContent editor={editor} />
     </div>
   );
