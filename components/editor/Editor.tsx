@@ -4,6 +4,7 @@ import { createExtensions } from '../../lib/editor/extensions';
 import { useEditorAutosave } from '../../lib/hooks/use-editor-autosave';
 import { useNoteLoader } from '../../lib/hooks/use-note-loader';
 import { EditorTitle } from './EditorTitle';
+import { BubbleToolbar } from './BubbleToolbar';
 import { useUIStore } from '../../lib/stores/ui-store';
 import { useNotesStore } from '../../lib/stores/notes-store';
 
@@ -56,6 +57,7 @@ export function Editor() {
         noteId={activeNoteId}
         onTitleChange={handleTitleChange}
       />
+      {editor && <BubbleToolbar editor={editor} />}
       <EditorContent editor={editor} />
     </div>
   );
