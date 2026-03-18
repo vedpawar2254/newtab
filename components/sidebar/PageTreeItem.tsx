@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ChevronRight, GripVertical, MoreHorizontal, Plus } from 'lucide-react';
+import { ChevronRight, GripVertical, Plus } from 'lucide-react';
+import { useSortable } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 import { useNotesStore } from '../../lib/stores/notes-store';
 import { useUIStore } from '../../lib/stores/ui-store';
+import { MoreMenu } from './MoreMenu';
 
 interface PageTreeItemProps {
   id: string;
@@ -27,6 +30,20 @@ export function PageTreeItem({
   const setRenamingId = useUIStore((s) => s.setRenamingId);
   const renameNote = useNotesStore((s) => s.renameNote);
   const createNote = useNotesStore((s) => s.createNote);
+
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
 
   const [renameValue, setRenameValue] = useState(title);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -70,7 +87,6 @@ export function PageTreeItem({
 
   const handleRowClick = useCallback(
     (e: React.MouseEvent) => {
-      // Don't navigate if clicking on interactive elements
       const target = e.target as HTMLElement;
       if (
         target.closest('button') ||
@@ -98,7 +114,6 @@ export function PageTreeItem({
       const note = await createNote('Untitled', id);
       setActiveNote(note.id);
       setRenamingId(note.id);
-      // Expand parent if collapsed
       if (isCollapsed) {
         toggleCollapsed(id);
       }
@@ -119,28 +134,38 @@ export function PageTreeItem({
 
   return (
     <div
-      ref={rowRef}
+      ref={(node) => {
+        setNodeRef(node);
+        (rowRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
+      }}
       role="treeitem"
       tabIndex={0}
       aria-expanded={hasChildren ? isExpanded : undefined}
       aria-selected={isActive}
       onClick={handleRowClick}
+      style={{
+        ...style,
+        paddingLeft: `${depth * 16}px`,
+        backgroundColor: isActive
+          ? 'var(--color-active-item-bg)'
+          : undefined,
+        opacity: isDragging ? 0.3 : 1,
+      }}
       className={`group flex items-center h-[32px] w-full cursor-pointer select-none transition-colors duration-150 ${
         isActive
           ? 'border-l-2 border-active-item-border'
           : 'border-l-2 border-transparent hover:bg-surface-elevated'
       }`}
-      style={{
-        paddingLeft: `${depth * 16}px`,
-        backgroundColor: isActive
-          ? 'var(--color-active-item-bg)'
-          : undefined,
-      }}
     >
       {/* Drag handle */}
-      <span className="flex-shrink-0 w-[20px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-        <GripVertical size={14} className="text-white/30" />
-      </span>
+      <button
+        {...attributes}
+        {...listeners}
+        className="flex-shrink-0 w-[20px] flex items-center justify-center opacity-0 group-hover:opacity-100 cursor-grab active:cursor-grabbing p-[3px] transition-opacity duration-150"
+        tabIndex={-1}
+      >
+        <GripVertical size={14} className="text-[rgba(255,255,255,0.30)]" />
+      </button>
 
       {/* Chevron */}
       <button
@@ -191,13 +216,7 @@ export function PageTreeItem({
         >
           <Plus size={14} className="text-accent" />
         </button>
-        <button
-          aria-label="More actions"
-          className="w-[20px] h-[20px] flex items-center justify-center rounded hover:bg-white/10"
-          tabIndex={-1}
-        >
-          <MoreHorizontal size={14} className="text-white/40" />
-        </button>
+        <MoreMenu pageId={id} childCount={childCount} />
       </div>
     </div>
   );
