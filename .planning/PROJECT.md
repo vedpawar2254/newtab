@@ -20,6 +20,11 @@ The editor and note-taking experience must feel as powerful and polished as Noti
 - [x] Checkbox blocks embeddable inside any note (Validated in Phase 2: Core Editor)
 - [x] Code blocks with syntax highlighting and language selector (Validated in Phase 2: Core Editor)
 - [x] Inline tables (create and edit) (Validated in Phase 2: Core Editor)
+- [x] Whiteboard — freeform drawing canvas for sketches and diagrams (Validated in Phase 5: Productivity Widgets)
+- [x] Pomodoro timer with session tracking (Validated in Phase 5: Productivity Widgets)
+- [x] Habit tracker with daily streaks (Validated in Phase 5: Productivity Widgets)
+- [x] Daily journal — auto-created daily note with date and prompts (Validated in Phase 5: Productivity Widgets)
+- [x] Motivational quotes corner — built-in library, rotates daily/on refresh (Validated in Phase 5: Productivity Widgets)
 
 ### Active
 
@@ -27,12 +32,7 @@ The editor and note-taking experience must feel as powerful and polished as Noti
 - [ ] Dedicated todo panel on new tab page (always visible in sidebar)
 - [ ] Kanban board view for todos/notes
 - [ ] Image/link/bookmark embeds
-- [ ] Whiteboard — freeform drawing canvas for sketches and diagrams
-- [ ] Pomodoro timer with session tracking
-- [ ] Habit tracker with daily streaks
-- [ ] Daily journal — auto-created daily note with date and prompts
 - [ ] Bookmarks/links manager — save and organize frequently used links
-- [ ] Motivational quotes corner — built-in library, rotates daily/on refresh
 - [ ] Quick capture — global keyboard shortcut to jot a thought instantly
 - [ ] Focus mode — distraction-free writing, hides everything except editor
 - [ ] Pinned notes — pin important notes to always show on dashboard
@@ -84,4 +84,4 @@ The editor and note-taking experience must feel as powerful and polished as Noti
 | Wiki-style backlinks over visual mind maps | More practical for daily use, lower complexity than full graph view | — Pending |
 
 ---
-*Last updated: 2026-03-18 after Phase 2 completion*
+*Last updated: 2026-03-19 after Phase 5 completion*
