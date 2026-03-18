@@ -143,7 +143,7 @@ Accent is NOT used for: code block backgrounds, table borders, slash menu backgr
 | Padding | 4px |
 | Shadow | `0 4px 12px rgba(0, 0, 0, 0.40)` (exception to Phase 1 flat-surface rule -- floating elements need depth) |
 | Button size | 32px x 32px |
-| Button gap | 2px |
+| Button gap | 4px |
 | Button border-radius | 4px |
 | Button hover | Background `#2F2F2F` |
 | Active button | Icon color `#5B9BD5`, background `rgba(91, 155, 213, 0.12)` |
