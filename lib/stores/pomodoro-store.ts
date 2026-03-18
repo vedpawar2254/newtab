@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { db } from '../storage/db';
+import { notifySessionComplete } from '../utils/pomodoro-notifications';
 
 interface PomodoroStoreState {
   workDuration: number;
@@ -65,6 +66,7 @@ export const usePomodoroStore = create<PomodoroStoreState>((set, get) => ({
 
   onSessionComplete: () => {
     const { isBreak, sessionsCompleted, breakDuration, workDuration, intervalId } = get();
+    const wasBreak = isBreak;
     if (intervalId) clearInterval(intervalId);
 
     if (!isBreak) {
@@ -84,6 +86,7 @@ export const usePomodoroStore = create<PomodoroStoreState>((set, get) => ({
       });
     }
     get().persist();
+    notifySessionComplete(wasBreak);
   },
 
   setWorkDuration: (mins: number) => {
