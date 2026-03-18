@@ -16,17 +16,16 @@ The editor and note-taking experience must feel as powerful and polished as Noti
 - [x] Notes-first layout — full editor center stage, sidebar for navigation (Validated in Phase 1: Foundation + App Shell)
 - [x] Dark theme (mandatory, default and only theme for v1) (Validated in Phase 1: Foundation + App Shell)
 - [x] Local-only persistence via Chrome storage APIs (Validated in Phase 1: Foundation + App Shell)
+- [x] Rich text editor with markdown shortcuts (WYSIWYG + MD) (Validated in Phase 2: Core Editor)
+- [x] Checkbox blocks embeddable inside any note (Validated in Phase 2: Core Editor)
+- [x] Code blocks with syntax highlighting and language selector (Validated in Phase 2: Core Editor)
+- [x] Inline tables (create and edit) (Validated in Phase 2: Core Editor)
 
 ### Active
 
-- [ ] Rich text editor with markdown shortcuts (WYSIWYG + MD)
-- [ ] Nested pages — any note can contain sub-notes, infinite depth
 - [ ] Wiki-style backlinks — [[link]] between notes, see connections
 - [ ] Dedicated todo panel on new tab page (always visible in sidebar)
-- [ ] Checkbox blocks embeddable inside any note
 - [ ] Kanban board view for todos/notes
-- [ ] Code blocks with syntax highlighting and language selector
-- [ ] Inline tables (create and edit)
 - [ ] Image/link/bookmark embeds
 - [ ] Whiteboard — freeform drawing canvas for sketches and diagrams
 - [ ] Pomodoro timer with session tracking
@@ -85,4 +84,4 @@ The editor and note-taking experience must feel as powerful and polished as Noti
 | Wiki-style backlinks over visual mind maps | More practical for daily use, lower complexity than full graph view | — Pending |
 
 ---
-*Last updated: 2026-03-18 after Phase 3 completion*
+*Last updated: 2026-03-18 after Phase 2 completion*
