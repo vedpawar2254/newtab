@@ -11,11 +11,14 @@ import { useHabitStore } from '../../lib/stores/habit-store';
 import { useJournalStore } from '../../lib/stores/journal-store';
 import { useTaskStore } from '../../lib/stores/task-store';
 import { storageService } from '../../lib/storage/storage-service';
+import { useCommandPalette } from '../../hooks/useCommandPalette';
+import { CommandPalette } from '../../components/command-palette/CommandPalette';
 
 export function App() {
   const setLoading = useUIStore((s) => s.setLoading);
   const initialize = useNotesStore((s) => s.initialize);
   const [saveVisible, setSaveVisible] = useState(false);
+  useCommandPalette();
 
   useEffect(() => {
     const init = async () => {
@@ -42,11 +45,13 @@ export function App() {
           .sort((a, b) => a.order - b.order);
         if (rootEntries.length > 0) {
           useUIStore.getState().setActiveNote(rootEntries[0].id);
+          useUIStore.getState().addRecentPage(rootEntries[0].id);
         }
       } else {
         // No notes exist -- create one and set it active
         const note = await state.createNote('', null);
         useUIStore.getState().setActiveNote(note.id);
+        useUIStore.getState().addRecentPage(note.id);
       }
 
       setLoading(false);
@@ -67,6 +72,7 @@ export function App() {
     <ErrorBoundary>
       <ToastProvider>
         <AppShell />
+        <CommandPalette />
         <SaveStatus visible={saveVisible} />
         <ToastContainer />
       </ToastProvider>
