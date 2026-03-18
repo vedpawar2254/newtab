@@ -18,18 +18,18 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Editor
 
-- [ ] **EDIT-01**: User can create and edit notes with rich text formatting (bold, italic, underline, strikethrough)
-- [ ] **EDIT-02**: User can type markdown shortcuts that auto-convert (# heading, **bold**, - list, etc.)
-- [ ] **EDIT-03**: User can create headings (H1, H2, H3) via toolbar or markdown shortcuts
-- [ ] **EDIT-04**: User can create ordered and unordered lists
-- [ ] **EDIT-05**: User can create checkbox/todo items inside any note
+- [x] **EDIT-01**: User can create and edit notes with rich text formatting (bold, italic, underline, strikethrough)
+- [x] **EDIT-02**: User can type markdown shortcuts that auto-convert (# heading, **bold**, - list, etc.)
+- [x] **EDIT-03**: User can create headings (H1, H2, H3) via toolbar or markdown shortcuts
+- [x] **EDIT-04**: User can create ordered and unordered lists
+- [x] **EDIT-05**: User can create checkbox/todo items inside any note
 - [ ] **EDIT-06**: User can insert syntax-highlighted code blocks with language selector
 - [ ] **EDIT-07**: User can create and edit inline tables (add/remove rows and columns)
 - [ ] **EDIT-08**: User can embed images inline in notes
 - [ ] **EDIT-09**: User can embed links with preview cards
 - [ ] **EDIT-10**: User can drag and reorder blocks within a note
 - [ ] **EDIT-11**: User can use slash command menu to insert any block type
-- [ ] **EDIT-12**: Editor supports keyboard shortcuts for all common formatting actions
+- [x] **EDIT-12**: Editor supports keyboard shortcuts for all common formatting actions
 
 ### Pages
 
@@ -143,18 +143,18 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FOUND-04 | Phase 1 | Complete |
 | FOUND-05 | Phase 1 | Complete |
 | FOUND-06 | Phase 1 | Complete |
-| EDIT-01 | Phase 2 | Pending |
-| EDIT-02 | Phase 2 | Pending |
-| EDIT-03 | Phase 2 | Pending |
-| EDIT-04 | Phase 2 | Pending |
-| EDIT-05 | Phase 2 | Pending |
+| EDIT-01 | Phase 2 | Complete |
+| EDIT-02 | Phase 2 | Complete |
+| EDIT-03 | Phase 2 | Complete |
+| EDIT-04 | Phase 2 | Complete |
+| EDIT-05 | Phase 2 | Complete |
 | EDIT-06 | Phase 2 | Pending |
 | EDIT-07 | Phase 2 | Pending |
 | EDIT-08 | Phase 2 | Pending |
 | EDIT-09 | Phase 2 | Pending |
 | EDIT-10 | Phase 2 | Pending |
 | EDIT-11 | Phase 2 | Pending |
-| EDIT-12 | Phase 2 | Pending |
+| EDIT-12 | Phase 2 | Complete |
 | PAGE-01 | Phase 3 | Complete |
 | PAGE-02 | Phase 3 | Complete |
 | PAGE-03 | Phase 3 | Complete |

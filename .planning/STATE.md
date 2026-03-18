@@ -48,6 +48,7 @@ Plan: 2 of 2
 *Updated after each plan completion*
 | Phase 01 P03 | 3min | 2 tasks | 8 files |
 | Phase 03 P01 | 6min | 2 tasks | 8 files |
+| Phase 02 P01 | 6min | 3 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,9 @@ Recent decisions affecting current work:
 - [03-01]: Tree uses flatten-then-filter approach for collapse state
 - [03-01]: Inline rename auto-triggers on new page creation
 - [03-01]: cascadeDelete uses db.bulkDelete for efficiency
+- [02-01]: Single editor instance kept alive, content swapped via setContent on note switch
+- [02-01]: Schema versioning wraps content with schemaVersion for safe future migration
+- [02-01]: 300ms debounce in autosave hook in addition to StorageService debounce
 
 ### Pending Todos
 
@@ -81,6 +85,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-18T20:18:18Z
-Stopped at: Completed 03-01-PLAN.md
-Resume file: .planning/phases/03-pages-navigation/03-02-PLAN.md
+Last session: 2026-03-18T20:19:12Z
+Stopped at: Completed 02-01-PLAN.md
+Resume file: .planning/phases/02-core-editor/02-02-PLAN.md
