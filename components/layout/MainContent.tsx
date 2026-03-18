@@ -3,16 +3,20 @@ import { useUIStore } from '../../lib/stores/ui-store';
 
 interface MainContentProps {
   children?: React.ReactNode;
+  editor?: React.ReactNode;
 }
 
-export function MainContent({ children }: MainContentProps) {
+export function MainContent({ children, editor }: MainContentProps) {
   const isLoading = useUIStore((s) => s.isLoading);
+  const activeNoteId = useUIStore((s) => s.activeNoteId);
 
   return (
     <main className="flex-1 bg-bg pt-[48px] px-[32px] min-h-screen">
       <div className="max-w-[720px] mx-auto">
         {isLoading ? (
           children
+        ) : activeNoteId && editor ? (
+          editor
         ) : (
           <div className="flex flex-col items-center justify-center gap-[16px] min-h-[60vh]">
             <FileText

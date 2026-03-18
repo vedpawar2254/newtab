@@ -5,6 +5,7 @@ import { SidebarToggle } from './SidebarToggle';
 import { MainContent } from './MainContent';
 import { SidebarSkeleton } from '../skeleton/SidebarSkeleton';
 import { ContentSkeleton } from '../skeleton/ContentSkeleton';
+import { Editor } from '../editor/Editor';
 
 export function AppShell() {
   const { sidebarOpen, toggleSidebar } = useSidebarToggle();
@@ -28,7 +29,7 @@ export function AppShell() {
           sidebarOpen ? 'ml-[240px]' : 'ml-0'
         }`}
       >
-        <MainContent>
+        <MainContent editor={<Editor />}>
           {isLoading && <ContentSkeleton />}
         </MainContent>
       </div>
