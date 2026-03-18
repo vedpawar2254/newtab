@@ -43,11 +43,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Todo
 
-- [ ] **TODO-01**: User can see a dedicated todo panel on the new tab page
+- [x] **TODO-01**: User can see a dedicated todo panel on the new tab page
 - [x] **TODO-02**: User can add, edit, complete, and delete todos from the panel
 - [x] **TODO-03**: User can mark todos as complete with checkbox toggle
 - [x] **TODO-04**: Todo panel persists state across tab opens
-- [ ] **TODO-05**: User can reorder todos via drag-and-drop
+- [x] **TODO-05**: User can reorder todos via drag-and-drop
 
 ### Kanban
 
@@ -162,11 +162,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PAGE-05 | Phase 3 | Complete |
 | PAGE-06 | Phase 3 | Complete |
 | PAGE-07 | Phase 1 | Complete |
-| TODO-01 | Phase 4 | Pending |
+| TODO-01 | Phase 4 | Complete |
 | TODO-02 | Phase 4 | Complete |
 | TODO-03 | Phase 4 | Complete |
 | TODO-04 | Phase 4 | Complete |
-| TODO-05 | Phase 4 | Pending |
+| TODO-05 | Phase 4 | Complete |
 | KANB-01 | Phase 4 | Complete |
 | KANB-02 | Phase 4 | Complete |
 | KANB-03 | Phase 4 | Complete |
