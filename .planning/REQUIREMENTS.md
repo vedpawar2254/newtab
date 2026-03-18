@@ -33,10 +33,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Pages
 
-- [ ] **PAGE-01**: User can create new pages/notes from sidebar
-- [ ] **PAGE-02**: User can nest any page inside another page (infinite depth)
-- [ ] **PAGE-03**: User can see page hierarchy in collapsible sidebar tree
-- [ ] **PAGE-04**: User can rename pages inline
+- [x] **PAGE-01**: User can create new pages/notes from sidebar
+- [x] **PAGE-02**: User can nest any page inside another page (infinite depth)
+- [x] **PAGE-03**: User can see page hierarchy in collapsible sidebar tree
+- [x] **PAGE-04**: User can rename pages inline
 - [ ] **PAGE-05**: User can delete pages
 - [ ] **PAGE-06**: User can reorder pages via drag-and-drop in sidebar
 - [x] **PAGE-07**: Notes-first layout with full editor center stage and sidebar for navigation
@@ -155,10 +155,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | EDIT-10 | Phase 2 | Pending |
 | EDIT-11 | Phase 2 | Pending |
 | EDIT-12 | Phase 2 | Pending |
-| PAGE-01 | Phase 3 | Pending |
-| PAGE-02 | Phase 3 | Pending |
-| PAGE-03 | Phase 3 | Pending |
-| PAGE-04 | Phase 3 | Pending |
+| PAGE-01 | Phase 3 | Complete |
+| PAGE-02 | Phase 3 | Complete |
+| PAGE-03 | Phase 3 | Complete |
+| PAGE-04 | Phase 3 | Complete |
 | PAGE-05 | Phase 3 | Pending |
 | PAGE-06 | Phase 3 | Pending |
 | PAGE-07 | Phase 1 | Complete |
