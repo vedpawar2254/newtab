@@ -1,7 +1,7 @@
 ---
 phase: 1
 slug: foundation-app-shell
-status: draft
+status: approved
 shadcn_initialized: false
 preset: none
 created: 2026-03-19
@@ -50,7 +50,7 @@ Exceptions: Sidebar width is fixed at 240px (not on the spacing scale). Sidebar 
 | Role | Size | Weight | Line Height | Usage |
 |------|------|--------|-------------|-------|
 | Body | 14px | 400 (regular) | 1.5 | Default text, sidebar items, status messages |
-| Label | 12px | 500 (medium) | 1.4 | Section headers in sidebar, metadata text, toast messages |
+| Label | 12px | 400 (regular) | 1.4 | Section headers in sidebar, metadata text, toast messages (differentiated by uppercase + 0.05em letter-spacing) |
 | Heading | 20px | 600 (semibold) | 1.2 | Page title placeholder in main content area |
 | Display | 28px | 600 (semibold) | 1.2 | Not used in Phase 1 (reserved for future editor H1) |
 
@@ -137,6 +137,7 @@ Accent is NOT used for: backgrounds, large surfaces, body text, borders, or deco
 | Position | Fixed, top-left corner of main content area (or overlapping sidebar edge) |
 | Size | 28px x 28px |
 | Icon | `PanelLeftClose` (lucide) when open, `PanelLeft` (lucide) when closed |
+| Accessible label | `aria-label="Close sidebar"` when open, `aria-label="Open sidebar"` when closed |
 | Background | Transparent, `#2F2F2F` on hover |
 | Border-radius | 4px |
 | Transition | 150ms background-color |
@@ -315,11 +316,11 @@ These custom properties should be defined in the global CSS file (`app.css` or e
 
 ## Checker Sign-Off
 
-- [ ] Dimension 1 Copywriting: PASS
-- [ ] Dimension 2 Visuals: PASS
-- [ ] Dimension 3 Color: PASS
-- [ ] Dimension 4 Typography: PASS
-- [ ] Dimension 5 Spacing: PASS
-- [ ] Dimension 6 Registry Safety: PASS
+- [x] Dimension 1 Copywriting: PASS
+- [x] Dimension 2 Visuals: PASS (aria-label added for sidebar toggle)
+- [x] Dimension 3 Color: PASS
+- [x] Dimension 4 Typography: PASS (Label weight corrected to 400, differentiated via uppercase + letter-spacing)
+- [x] Dimension 5 Spacing: PASS
+- [x] Dimension 6 Registry Safety: PASS
 
-**Approval:** pending
+**Approval:** approved (2026-03-19)
