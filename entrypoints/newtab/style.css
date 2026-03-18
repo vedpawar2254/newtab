@@ -12,6 +12,12 @@
   --color-text-secondary: rgba(255, 255, 255, 0.50);
   --color-border: rgba(255, 255, 255, 0.08);
   --color-border-strong: rgba(255, 255, 255, 0.12);
+  --color-drag-indicator: #5B9BD5;
+  --color-drag-ghost-bg: rgba(37, 37, 37, 0.90);
+  --color-active-item-bg: rgba(91, 155, 213, 0.08);
+  --color-active-item-border: #5B9BD5;
+  --color-active-item-hover-bg: rgba(91, 155, 213, 0.12);
+  --color-drop-nest-bg: rgba(91, 155, 213, 0.06);
 
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
