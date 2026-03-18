@@ -97,6 +97,15 @@ Accent is NOT used for: kanban column backgrounds, card backgrounds, checkbox bo
 
 ---
 
+## Visual Hierarchy & Focal Points
+
+| View | Primary Focal Point | Secondary Focal Point |
+|------|--------------------|-----------------------|
+| Kanban board | Kanban column headers are the primary visual anchors on the board view -- uppercase labels with card counts draw the eye to column organization | Kanban cards within each column form the secondary layer of attention |
+| Todo panel | The todo add input ("Add a todo...") at the bottom of the panel is the primary visual anchor, inviting quick capture | The checkbox list above it provides the secondary scan path |
+
+---
+
 ## Layout Contract
 
 ### Todo Panel (Right Sidebar)
@@ -132,7 +141,7 @@ Accent is NOT used for: kanban column backgrounds, card backgrounds, checkbox bo
 | Property | Value |
 |----------|-------|
 | Label | "TODOS" -- 12px uppercase, weight 400, letter-spacing 0.05em, text-secondary color |
-| Add button | `Plus` icon (lucide), 16px, text-secondary default, accent on hover |
+| Add button | `Plus` icon (lucide), 16px, text-secondary default, accent on hover, `aria-label="Add todo"` |
 | Position | Label left-aligned, add button right-aligned |
 | Bottom border | 1px solid `rgba(255, 255, 255, 0.08)` |
 
@@ -171,7 +180,7 @@ Accent is NOT used for: kanban column backgrounds, card backgrounds, checkbox bo
 | Background | `#191919` |
 | Border | 1px solid `rgba(255, 255, 255, 0.08)`, accent border on focus |
 | Border-radius | 6px |
-| Padding | 8px 12px |
+| Padding | 8px 16px |
 | Placeholder | "Add a todo..." |
 | Placeholder color | `rgba(255, 255, 255, 0.30)` |
 | Submit | Enter key to add, input clears after submission |
@@ -208,7 +217,7 @@ Accent is NOT used for: kanban column backgrounds, card backgrounds, checkbox bo
 | Background | `#252525` |
 | Border | 1px solid `rgba(255, 255, 255, 0.08)` |
 | Border-radius | 8px |
-| Header padding | 12px 16px |
+| Header padding | 8px 16px |
 | Body padding | 8px |
 | Max height | Viewport height minus 120px (header + padding), vertical scroll inside |
 
@@ -220,7 +229,7 @@ Accent is NOT used for: kanban column backgrounds, card backgrounds, checkbox bo
 | Card count | 12px, text-secondary, right of label |
 | Bottom border | 1px solid `rgba(255, 255, 255, 0.08)` |
 | Editable | Double-click to rename inline |
-| Context actions | Hover reveals `MoreHorizontal` icon (lucide), 14px -- opens dropdown with Rename, Delete |
+| Context actions | Hover reveals `MoreHorizontal` icon (lucide), 14px, `aria-label="Column options"` -- opens dropdown with Rename, Delete |
 
 ### Kanban Card
 
@@ -229,7 +238,7 @@ Accent is NOT used for: kanban column backgrounds, card backgrounds, checkbox bo
 | Background | `#2F2F2F` |
 | Border | 1px solid `rgba(255, 255, 255, 0.08)` |
 | Border-radius | 6px |
-| Padding | 12px 16px |
+| Padding | 8px 16px |
 | Min height | 40px |
 | Gap between cards | 8px |
 | Text | 14px, weight 400, text-primary, single line with text-overflow ellipsis |
