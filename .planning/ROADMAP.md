@@ -134,6 +134,6 @@ Note: Phases 4 and 5 depend only on Phase 1 and can be parallelized with Phases 
 | 1. Foundation + App Shell | 2/3 | In Progress|  |
 | 2. Core Editor | 4/5 | In Progress|  |
 | 3. Pages + Navigation | 1/2 | In Progress|  |
-| 4. Todo + Kanban | 1/3 | In Progress|  |
+| 4. Todo + Kanban | 2/3 | In Progress|  |
 | 5. Productivity Widgets | 5/5 | Complete   | 2026-03-18 |
 | 6. UX + Polish | 0/2 | Planning complete | - |

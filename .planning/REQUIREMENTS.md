@@ -51,9 +51,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Kanban
 
-- [ ] **KANB-01**: User can view todos/tasks in a kanban board layout
+- [x] **KANB-01**: User can view todos/tasks in a kanban board layout
 - [x] **KANB-02**: User can create kanban columns (e.g., To Do, In Progress, Done)
-- [ ] **KANB-03**: User can drag cards between columns
+- [x] **KANB-03**: User can drag cards between columns
 - [x] **KANB-04**: User can add, edit, and delete kanban cards
 - [x] **KANB-05**: Kanban state persists across tab opens
 
@@ -167,9 +167,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TODO-03 | Phase 4 | Complete |
 | TODO-04 | Phase 4 | Complete |
 | TODO-05 | Phase 4 | Pending |
-| KANB-01 | Phase 4 | Pending |
+| KANB-01 | Phase 4 | Complete |
 | KANB-02 | Phase 4 | Complete |
-| KANB-03 | Phase 4 | Pending |
+| KANB-03 | Phase 4 | Complete |
 | KANB-04 | Phase 4 | Complete |
 | KANB-05 | Phase 4 | Complete |
 | DRAW-01 | Phase 5 | Complete |
