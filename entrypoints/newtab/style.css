@@ -46,6 +46,14 @@
   --spacing-editor-max-width: 720px;
   --spacing-block-gap: 4px;
   --spacing-paragraph-gap: 8px;
+
+  /* Phase 5 widget additions */
+  --color-timer-ring-active: #5B9BD5;
+  --color-timer-ring-break: #30A46C;
+  --color-timer-ring-bg: rgba(255, 255, 255, 0.08);
+  --color-habit-complete: #30A46C;
+  --color-habit-incomplete: rgba(255, 255, 255, 0.12);
+  --color-habit-streak: #F5A623;
 }
 
 /* ===== Tiptap / ProseMirror Editor Styles ===== */

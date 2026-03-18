@@ -33,3 +33,27 @@ export interface StorageUsage {
   quota: number;
   percent: number;
 }
+
+export interface HabitRecord {
+  id: string;
+  name: string;
+  createdAt: number; // Date.now() timestamp
+  completions: Record<string, boolean>; // key = "YYYY-MM-DD", value = completed
+}
+
+export interface HabitData {
+  habits: HabitRecord[];
+  updatedAt: number;
+}
+
+export interface PomodoroState {
+  workDuration: number;   // minutes, default 25
+  breakDuration: number;  // minutes, default 5
+  sessionsCompleted: number;
+  isRunning: boolean;
+  isBreak: boolean;
+  timeRemaining: number;  // seconds
+  updatedAt: number;
+}
+
+export type WidgetSectionId = 'pomodoro' | 'habits' | 'journal';
