@@ -8,6 +8,7 @@ import { HabitTracker } from '../widgets/HabitTracker';
 import { JournalSection } from '../widgets/JournalSection';
 import { WhiteboardButton } from '../widgets/WhiteboardButton';
 import { QuoteFooter } from '../widgets/QuoteFooter';
+import { QuickLinks } from '../sidebar/QuickLinks';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -76,6 +77,9 @@ export function Sidebar({ isOpen, onToggle, children }: SidebarProps) {
           </div>
         )}
       </div>
+
+      {/* Quick links - pinned above quote footer */}
+      {!isLoading && <QuickLinks />}
 
       {/* Quote footer - pinned to bottom, outside scrollable area */}
       {!isLoading && <QuoteFooter />}

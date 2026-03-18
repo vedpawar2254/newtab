@@ -77,3 +77,11 @@ export interface KanbanState {
   columns: KanbanColumn[];
   updatedAt: number;
 }
+
+export interface QuickLink {
+  id: string;
+  title: string;
+  url: string;
+  order: number;
+  createdAt: number;
+}
