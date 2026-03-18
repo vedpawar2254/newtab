@@ -10,10 +10,10 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Foundation
 
 - [ ] **FOUND-01**: Extension loads new tab page in under 500ms to interactive
-- [ ] **FOUND-02**: All data persists in local storage (Dexie.js/IndexedDB) until user deletes it
-- [ ] **FOUND-03**: Storage uses granular key-per-note architecture with tree index
-- [ ] **FOUND-04**: Dark theme applied globally as the only theme
-- [ ] **FOUND-05**: Extension uses Chrome Manifest V3 with `unlimitedStorage` permission
+- [x] **FOUND-02**: All data persists in local storage (Dexie.js/IndexedDB) until user deletes it
+- [x] **FOUND-03**: Storage uses granular key-per-note architecture with tree index
+- [x] **FOUND-04**: Dark theme applied globally as the only theme
+- [x] **FOUND-05**: Extension uses Chrome Manifest V3 with `unlimitedStorage` permission
 - [ ] **FOUND-06**: UI animations and transitions feel smooth and premium (Notion-comparable)
 
 ### Editor
@@ -138,10 +138,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | FOUND-01 | Phase 1 | Pending |
-| FOUND-02 | Phase 1 | Pending |
-| FOUND-03 | Phase 1 | Pending |
-| FOUND-04 | Phase 1 | Pending |
-| FOUND-05 | Phase 1 | Pending |
+| FOUND-02 | Phase 1 | Complete |
+| FOUND-03 | Phase 1 | Complete |
+| FOUND-04 | Phase 1 | Complete |
+| FOUND-05 | Phase 1 | Complete |
 | FOUND-06 | Phase 1 | Pending |
 | EDIT-01 | Phase 2 | Pending |
 | EDIT-02 | Phase 2 | Pending |
