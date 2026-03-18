@@ -48,11 +48,14 @@ Plans:
   3. User can drag and reorder blocks within a note and the new order persists
   4. Keyboard shortcuts work for all common formatting actions (Cmd+B, Cmd+I, etc.)
   5. Note content saves automatically and loads correctly when revisited
-**Plans**: TBD
+**Plans**: 5 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md — Tiptap editor foundation: install deps, extensions, title field, auto-save, CSS tokens
+- [ ] 02-02-PLAN.md — Bubble toolbar (floating formatting bar) and slash command menu with categories
+- [ ] 02-03-PLAN.md — Code block NodeView (language selector, copy button) and table controls (+ buttons)
+- [ ] 02-04-PLAN.md — Image paste/drop, bookmark card link embeds, and drag-and-drop block handles
+- [ ] 02-05-PLAN.md — Editor test suite and visual verification checkpoint
 
 ### Phase 3: Pages + Navigation
 **Goal**: Users can organize notes into a nested page hierarchy with full sidebar navigation, drag-and-drop reordering, and page lifecycle management
@@ -126,7 +129,7 @@ Note: Phases 4 and 5 depend only on Phase 1 and can be parallelized with Phases 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation + App Shell | 2/3 | In Progress|  |
-| 2. Core Editor | 0/? | Not started | - |
+| 2. Core Editor | 0/5 | Planning complete | - |
 | 3. Pages + Navigation | 0/2 | Planning complete | - |
 | 4. Todo + Kanban | 0/? | Not started | - |
 | 5. Productivity Widgets | 0/? | Not started | - |
