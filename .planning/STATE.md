@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 05-01-PLAN.md
-last_updated: "2026-03-18T20:34:26.115Z"
+stopped_at: Completed 02-05-PLAN.md
+last_updated: "2026-03-18T20:35:21.244Z"
 progress:
   total_phases: 6
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 20
-  completed_plans: 10
+  completed_plans: 11
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-19)
 
 **Core value:** The editor and note-taking experience must feel as powerful and polished as Notion -- rich text with markdown shortcuts, nested pages, and seamless organization.
-**Current focus:** Phase 05 — productivity-widgets
+**Current focus:** Phase 04 — todo-kanban
 
 ## Current Position
 
-Phase: 05 (productivity-widgets) — EXECUTING
-Plan: 2 of 5
+Phase: 04 (todo-kanban) — EXECUTING
+Plan: 1 of 3
 
 ## Performance Metrics
 
@@ -54,6 +54,7 @@ Plan: 2 of 5
 | Phase 03 P02 | 5min | 2 tasks | 4 files |
 | Phase 02 P03 | 3min | 2 tasks | 4 files |
 | Phase 05 P01 | 2min | 2 tasks | 9 files |
+| Phase 02 P05 | 5min | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -90,6 +91,7 @@ Recent decisions affecting current work:
 - [Phase 05]: Pomodoro timer resets on page load (only durations and session count persist)
 - [Phase 05]: Journal entries are NoteRecords tracked by ID list in settings
 - [Phase 05]: Widget section collapse state is ephemeral (resets on page load)
+- [Phase 02-05]: Test editor created with createExtensions() outside React using @tiptap/core Editor directly
 
 ### Pending Todos
 
@@ -102,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-18T20:34:26.113Z
-Stopped at: Completed 05-01-PLAN.md
+Last session: 2026-03-18T20:35:21.242Z
+Stopped at: Completed 02-05-PLAN.md
 Resume file: None
