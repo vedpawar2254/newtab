@@ -17,7 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 3: Pages + Navigation** - Nested page hierarchy with sidebar tree, drag-and-drop, and page management
 - [x] **Phase 4: Todo + Kanban** - Dedicated todo panel and kanban board view for task management (completed 2026-03-18)
 - [x] **Phase 5: Productivity Widgets** - Pomodoro timer, habit tracker, daily journal, quotes, and whiteboard (completed 2026-03-18)
-- [ ] **Phase 6: UX + Polish** - Command palette, full-text search, focus mode, keyboard navigation, and animation polish
+- [x] **Phase 6: UX + Polish** - Command palette, full-text search, focus mode, keyboard navigation, and animation polish (completed 2026-03-18)
 
 ## Phase Details
 
@@ -136,4 +136,4 @@ Note: Phases 4 and 5 depend only on Phase 1 and can be parallelized with Phases 
 | 3. Pages + Navigation | 1/2 | In Progress|  |
 | 4. Todo + Kanban | 3/3 | Complete   | 2026-03-18 |
 | 5. Productivity Widgets | 5/5 | Complete   | 2026-03-18 |
-| 6. UX + Polish | 0/2 | Planning complete | - |
+| 6. UX + Polish | 2/2 | Complete   | 2026-03-18 |

@@ -85,10 +85,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### UX
 
-- [ ] **UX-01**: User can open command palette with Cmd+K (or Ctrl+K)
-- [ ] **UX-02**: Command palette supports searching notes, commands, and navigation
+- [x] **UX-01**: User can open command palette with Cmd+K (or Ctrl+K)
+- [x] **UX-02**: Command palette supports searching notes, commands, and navigation
 - [ ] **UX-03**: User can toggle focus mode (hides sidebar, todo panel, quotes — only editor visible)
-- [ ] **UX-04**: User can search across all notes with full-text search
+- [x] **UX-04**: User can search across all notes with full-text search
 - [ ] **UX-05**: Full keyboard navigation across the app
 - [ ] **UX-06**: All interactions feel smooth with appropriate animations and transitions
 
@@ -189,10 +189,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | QUOT-01 | Phase 5 | Complete |
 | QUOT-02 | Phase 5 | Complete |
 | QUOT-03 | Phase 5 | Complete |
-| UX-01 | Phase 6 | Pending |
-| UX-02 | Phase 6 | Pending |
+| UX-01 | Phase 6 | Complete |
+| UX-02 | Phase 6 | Complete |
 | UX-03 | Phase 6 | Pending |
-| UX-04 | Phase 6 | Pending |
+| UX-04 | Phase 6 | Complete |
 | UX-05 | Phase 6 | Pending |
 | UX-06 | Phase 6 | Pending |
 
