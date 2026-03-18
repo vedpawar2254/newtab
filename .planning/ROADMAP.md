@@ -81,11 +81,12 @@ Plans:
   2. Todos persist across tab opens and can be reordered via drag-and-drop
   3. User can switch to a kanban board view with customizable columns and drag cards between them
   4. Kanban board state (columns, cards, card positions) persists across tab opens
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
+- [ ] 04-01-PLAN.md — Unified task data model (Dexie v2 migration, TaskRecord/KanbanColumn types, Zustand task store with CRUD + tests)
+- [ ] 04-02-PLAN.md — Todo panel: right sidebar (280px push), toggle, task list with checkboxes, dnd-kit reorder, add input
+- [ ] 04-03-PLAN.md — Kanban board: multi-column layout, cross-column dnd-kit drag, column CRUD, sidebar entry, view switching
 
 ### Phase 5: Productivity Widgets
 **Goal**: Users have access to a pomodoro timer, habit tracker, daily journal, motivational quotes, and a freeform whiteboard -- all as self-contained modules
@@ -133,6 +134,6 @@ Note: Phases 4 and 5 depend only on Phase 1 and can be parallelized with Phases 
 | 1. Foundation + App Shell | 2/3 | In Progress|  |
 | 2. Core Editor | 4/5 | In Progress|  |
 | 3. Pages + Navigation | 1/2 | In Progress|  |
-| 4. Todo + Kanban | 0/? | Not started | - |
+| 4. Todo + Kanban | 0/3 | Planning complete | - |
 | 5. Productivity Widgets | 0/5 | Planning complete | - |
 | 6. UX + Polish | 0/2 | Planning complete | - |
