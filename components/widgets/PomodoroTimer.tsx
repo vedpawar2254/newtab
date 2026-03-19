@@ -81,7 +81,7 @@ export function PomodoroTimer() {
             <button
               type="button"
               onClick={start}
-              className="h-[32px] px-[12px] text-[14px] rounded-[4px] text-accent border border-accent/30 bg-transparent hover:bg-white/5 transition-colors duration-150 cursor-pointer active:opacity-80 transition-all duration-100 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              className="h-[32px] px-[12px] text-[14px] rounded-[4px] text-accent border border-accent/30 bg-transparent hover:bg-white/5 transition-colors duration-150 cursor-pointer active:opacity-80 transition-all duration-100"
             >
               Start
             </button>
@@ -89,7 +89,7 @@ export function PomodoroTimer() {
             <button
               type="button"
               onClick={pause}
-              className="h-[32px] px-[12px] text-[14px] rounded-[4px] text-warning border border-warning/30 bg-transparent hover:bg-white/5 transition-colors duration-150 cursor-pointer active:opacity-80 transition-all duration-100 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              className="h-[32px] px-[12px] text-[14px] rounded-[4px] text-warning border border-warning/30 bg-transparent hover:bg-white/5 transition-colors duration-150 cursor-pointer active:opacity-80 transition-all duration-100"
             >
               Pause
             </button>
@@ -97,7 +97,7 @@ export function PomodoroTimer() {
           <button
             type="button"
             onClick={reset}
-            className="h-[32px] px-[12px] text-[14px] rounded-[4px] text-text-secondary border border-border bg-transparent hover:bg-white/5 transition-colors duration-150 cursor-pointer active:opacity-80 transition-all duration-100 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+            className="h-[32px] px-[12px] text-[14px] rounded-[4px] text-text-secondary border border-border bg-transparent hover:bg-white/5 transition-colors duration-150 cursor-pointer active:opacity-80 transition-all duration-100"
           >
             Reset
           </button>

@@ -7,16 +7,34 @@ export async function notifySessionComplete(isBreak: boolean): Promise<void> {
   playChime();
 
   try {
-    if (typeof chrome !== 'undefined' && chrome.notifications) {
+    // Try Chrome extension notifications API first
+    if (typeof chrome !== 'undefined' && chrome.notifications?.create) {
       chrome.notifications.create({
         type: 'basic',
         iconUrl: chrome.runtime.getURL('icon/128.png'),
         title,
         message,
       });
+      return;
     }
-  } catch (err) {
-    console.error('Could not send notification. Check extension permissions.', err);
+  } catch {
+    // Fall through to Web Notification API
+  }
+
+  // Fallback: Web Notification API
+  try {
+    if ('Notification' in window) {
+      if (Notification.permission === 'granted') {
+        new Notification(title, { body: message });
+      } else if (Notification.permission !== 'denied') {
+        const permission = await Notification.requestPermission();
+        if (permission === 'granted') {
+          new Notification(title, { body: message });
+        }
+      }
+    }
+  } catch {
+    // Notifications unavailable
   }
 }
 

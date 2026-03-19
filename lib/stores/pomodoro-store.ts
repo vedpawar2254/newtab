@@ -42,6 +42,7 @@ export const usePomodoroStore = create<PomodoroStoreState>((set, get) => ({
     const { intervalId } = get();
     if (intervalId) clearInterval(intervalId);
     set({ isRunning: false, intervalId: null });
+    get().persist();
   },
 
   reset: () => {
@@ -117,12 +118,17 @@ export const usePomodoroStore = create<PomodoroStoreState>((set, get) => ({
           workDuration: number;
           breakDuration: number;
           sessionsCompleted: number;
+          isBreak?: boolean;
+          timeRemaining?: number;
         };
+        const isBreak = data.isBreak ?? false;
+        const timeRemaining = data.timeRemaining ?? data.workDuration * 60;
         set({
           workDuration: data.workDuration,
           breakDuration: data.breakDuration,
           sessionsCompleted: data.sessionsCompleted,
-          timeRemaining: data.workDuration * 60,
+          isBreak,
+          timeRemaining,
         });
       }
     } catch (err) {
@@ -132,10 +138,10 @@ export const usePomodoroStore = create<PomodoroStoreState>((set, get) => ({
 
   persist: async () => {
     try {
-      const { workDuration, breakDuration, sessionsCompleted } = get();
+      const { workDuration, breakDuration, sessionsCompleted, isBreak, timeRemaining } = get();
       await db.settings.put({
         key: 'pomodoro-state',
-        value: { workDuration, breakDuration, sessionsCompleted, updatedAt: Date.now() },
+        value: { workDuration, breakDuration, sessionsCompleted, isBreak, timeRemaining, updatedAt: Date.now() },
       });
     } catch (err) {
       console.error('Failed to persist pomodoro state:', err);

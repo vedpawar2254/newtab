@@ -6,7 +6,7 @@ export default defineConfig({
   manifest: {
     name: 'NewTab',
     description: 'Notion-level productivity in every new tab',
-    permissions: ['storage', 'unlimitedStorage'],
+    permissions: ['storage', 'unlimitedStorage', 'notifications'],
   },
   vite: () => ({
     plugins: [tailwindcss()],
