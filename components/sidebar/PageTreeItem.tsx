@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ChevronRight, GripVertical, Plus } from 'lucide-react';
 import { useSortable } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
 import { useNotesStore } from '../../lib/stores/notes-store';
 import { useUIStore } from '../../lib/stores/ui-store';
 import { MoreMenu } from './MoreMenu';
@@ -42,7 +41,9 @@ export function PageTreeItem({
   } = useSortable({ id });
 
   const style = {
-    transform: CSS.Transform.toString(transform),
+    transform: transform
+      ? `translate3d(0, ${transform.y}px, 0)`
+      : undefined,
     transition,
   };
 

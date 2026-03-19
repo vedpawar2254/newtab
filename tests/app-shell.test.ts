@@ -7,9 +7,9 @@ describe('App Shell Structure', () => {
     expect(existsSync(resolve(__dirname, '../components/layout/AppShell.tsx'))).toBe(true);
   });
 
-  it('Sidebar component file exists and has correct width', () => {
+  it('Sidebar component file exists and uses dynamic width', () => {
     const content = readFileSync(resolve(__dirname, '../components/layout/Sidebar.tsx'), 'utf-8');
-    expect(content).toContain('240');
+    expect(content).toContain('sidebarWidth');
   });
 
   it('MainContent renders empty state with correct copy', () => {

@@ -12,7 +12,6 @@ import { Editor } from '../editor/Editor';
 import { WhiteboardView } from '../widgets/WhiteboardView';
 import { TodoPanel } from '../todo/TodoPanel';
 import { TodoPanelToggle } from '../todo/TodoPanelToggle';
-
 export function AppShell() {
   const { sidebarOpen, toggleSidebar } = useSidebarToggle();
   const { todoPanelOpen, toggleTodoPanel } = useTodoPanelToggle();
@@ -20,8 +19,9 @@ export function AppShell() {
   useKeyboardNav();
   const isLoading = useUIStore((s) => s.isLoading);
   const activeView = useUIStore((s) => s.activeView);
+  const sidebarWidth = useUIStore((s) => s.sidebarWidth);
 
-  // Whiteboard takes over the full viewport — no sidebar, no todo panel
+  // Whiteboard takes over the full viewport -- no sidebar, no todo panel
   if (activeView === 'whiteboard') {
     return (
       <div className="h-screen w-screen bg-bg text-text-primary font-mono">
@@ -33,10 +33,11 @@ export function AppShell() {
   return (
     <div className="flex h-screen w-screen bg-bg text-text-primary font-mono">
       <div
-        className={`transition-transform duration-[250ms] ${
-          focusMode ? '-translate-x-[240px]' : 'translate-x-0'
-        }`}
-        style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
+        className={`transition-transform duration-[250ms]`}
+        style={{
+          transform: focusMode ? `translateX(-${sidebarWidth}px)` : 'translateX(0)',
+          transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+        }}
       >
         <Sidebar isOpen={sidebarOpen} onToggle={toggleSidebar}>
           {isLoading && <SidebarSkeleton />}
@@ -62,12 +63,14 @@ export function AppShell() {
       )}
 
       <div
-        className={`flex-1 transition-all duration-[250ms] ${
-          focusMode
-            ? 'ml-0 max-w-[720px] mx-auto'
-            : sidebarOpen ? 'ml-[240px]' : 'ml-0'
-        } ${!focusMode && todoPanelOpen ? 'mr-[280px]' : 'mr-0'}`}
-        style={{ transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)' }}
+        className="flex-1 transition-all duration-[250ms]"
+        style={{
+          marginLeft: focusMode ? 0 : sidebarOpen ? `${sidebarWidth}px` : 0,
+          marginRight: !focusMode && todoPanelOpen ? '280px' : 0,
+          maxWidth: focusMode ? '720px' : undefined,
+          marginInline: focusMode ? 'auto' : undefined,
+          transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+        }}
       >
         <MainContent editor={<Editor />}>
           {isLoading && <ContentSkeleton />}

@@ -3,6 +3,7 @@ import { db } from '../storage/db';
 
 interface UIState {
   sidebarOpen: boolean;
+  sidebarWidth: number;
   activeNoteId: string | null;
   isLoading: boolean;
   collapsedIds: Set<string>;
@@ -14,6 +15,7 @@ interface UIState {
   recentPageIds: string[];
   toggleSidebar: () => void;
   setSidebarOpen: (open: boolean) => void;
+  setSidebarWidth: (width: number) => void;
   setActiveNote: (id: string | null) => void;
   setLoading: (loading: boolean) => void;
   toggleCollapsed: (id: string) => void;
@@ -31,6 +33,7 @@ interface UIState {
 
 export const useUIStore = create<UIState>((set, get) => ({
   sidebarOpen: true,
+  sidebarWidth: 240,
   activeNoteId: null,
   isLoading: true,
   collapsedIds: new Set<string>(),
@@ -42,6 +45,11 @@ export const useUIStore = create<UIState>((set, get) => ({
   recentPageIds: [],
   toggleSidebar: () => set((s) => ({ sidebarOpen: !s.sidebarOpen })),
   setSidebarOpen: (open) => set({ sidebarOpen: open }),
+  setSidebarWidth: (width) => {
+    const clamped = Math.max(200, Math.min(480, width));
+    set({ sidebarWidth: clamped });
+    db.settings.put({ key: 'sidebar-width', value: clamped });
+  },
   setActiveNote: (id) => set({ activeNoteId: id }),
   setLoading: (loading) => set({ isLoading: loading }),
   toggleCollapsed: (id) =>
@@ -69,10 +77,16 @@ export const useUIStore = create<UIState>((set, get) => ({
   addRecentPage: (id) => set((s) => ({ recentPageIds: [id, ...s.recentPageIds.filter(p => p !== id)].slice(0, 5) })),
   loadTodoPanelState: async () => {
     try {
-      const record = await db.settings.get('todo-panel-open');
-      if (record) set({ todoPanelOpen: record.value as boolean });
+      const [todoRecord, widthRecord] = await Promise.all([
+        db.settings.get('todo-panel-open'),
+        db.settings.get('sidebar-width'),
+      ]);
+      const updates: Partial<UIState> = {};
+      if (todoRecord) updates.todoPanelOpen = todoRecord.value as boolean;
+      if (widthRecord) updates.sidebarWidth = widthRecord.value as number;
+      set(updates);
     } catch (err) {
-      console.error('Failed to load todo panel state:', err);
+      console.error('Failed to load UI state:', err);
     }
   },
 }));
