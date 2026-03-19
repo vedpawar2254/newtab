@@ -22,6 +22,11 @@ export function QuickLinks() {
     if (!url) return;
     // Auto-prefix https if no protocol
     const fullUrl = url.match(/^https?:\/\//) ? url : `https://${url}`;
+    try {
+      new URL(fullUrl);
+    } catch {
+      return; // Invalid URL, do nothing
+    }
     await addLink(titleValue.trim(), fullUrl);
     setUrlValue('');
     setTitleValue('');

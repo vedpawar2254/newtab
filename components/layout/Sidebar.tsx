@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useEffect } from 'react';
 import { Columns3 } from 'lucide-react';
 import { useUIStore } from '../../lib/stores/ui-store';
 import { NewPageButton } from '../sidebar/NewPageButton';
@@ -26,7 +26,15 @@ export function Sidebar({ isOpen, onToggle, children }: SidebarProps) {
   const sidebarWidth = useUIStore((s) => s.sidebarWidth);
   const setSidebarWidth = useUIStore((s) => s.setSidebarWidth);
   const isResizing = useRef(false);
+  const cleanupRef = useRef<(() => void) | null>(null);
   const { enabledWidgets } = useSidebarWidgets();
+
+  // Clean up resize listeners on unmount
+  useEffect(() => {
+    return () => {
+      if (cleanupRef.current) cleanupRef.current();
+    };
+  }, []);
 
   const handleMouseDown = useCallback(
     (e: React.MouseEvent) => {
@@ -47,10 +55,17 @@ export function Sidebar({ isOpen, onToggle, children }: SidebarProps) {
         document.body.style.userSelect = '';
         document.removeEventListener('mousemove', handleMouseMove);
         document.removeEventListener('mouseup', handleMouseUp);
+        cleanupRef.current = null;
       };
 
       document.addEventListener('mousemove', handleMouseMove);
       document.addEventListener('mouseup', handleMouseUp);
+      cleanupRef.current = () => {
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
+        document.body.style.cursor = '';
+        document.body.style.userSelect = '';
+      };
     },
     [setSidebarWidth],
   );
