@@ -46,6 +46,15 @@ NewTab is under active development. Here's where things stand:
 | Productivity widgets | Planned |
 | UX polish & search | Planned |
 
+## Install (Ussage)
+
+1. download newtab-extension.zip
+2. unzip
+3. Open `chrome://extensions` in Chrome
+4. Enable **Developer mode** (top right)
+5. Click **Load unpacked** and select the unzipped folder
+6. Open a new tab — NewTab should appear
+
 ## Install (Development)
 
 1. Clone the repo
