@@ -1,4 +1,5 @@
 import type { Editor } from '@tiptap/react';
+import { requestUrlInput } from './url-input-event';
 
 export interface SlashItem {
   title: string;
@@ -76,10 +77,9 @@ export const slashItems: SlashItem[] = [
     description: 'Embed an image',
     category: 'Media',
     command: (editor) => {
-      const url = window.prompt('Enter image URL:');
-      if (url) {
+      requestUrlInput('Enter image URL', (url) => {
         editor.chain().focus().setImage({ src: url }).run();
-      }
+      });
     },
   },
   {
@@ -105,10 +105,9 @@ export const slashItems: SlashItem[] = [
     description: 'Embed a link with preview',
     category: 'Media',
     command: (editor) => {
-      const url = window.prompt('Enter URL:');
-      if (url) {
+      requestUrlInput('Enter URL', (url) => {
         editor.chain().focus().setLink({ href: url }).run();
-      }
+      });
     },
   },
 

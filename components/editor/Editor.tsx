@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import { createExtensions } from '../../lib/editor/extensions';
 import { useEditorAutosave } from '../../lib/hooks/use-editor-autosave';
@@ -7,11 +7,15 @@ import { EditorTitle } from './EditorTitle';
 import { BubbleToolbar } from './BubbleToolbar';
 import { DragHandle } from './DragHandle';
 import { TableControls } from './TableControls';
+import { UrlInputDialog } from './UrlInputDialog';
 import { useUIStore } from '../../lib/stores/ui-store';
 import { useNotesStore } from '../../lib/stores/notes-store';
+import { onUrlInputRequest, resolveUrlInput, cancelUrlInput, getPendingLabel } from '../../lib/editor/url-input-event';
 
 export function Editor() {
   const activeNoteId = useUIStore((s) => s.activeNoteId);
+  const [urlDialogOpen, setUrlDialogOpen] = useState(false);
+  const [urlDialogLabel, setUrlDialogLabel] = useState('');
 
   const editor = useEditor({
     extensions: createExtensions(),
@@ -22,6 +26,13 @@ export function Editor() {
 
   useEditorAutosave(editor, activeNoteId);
   const { note } = useNoteLoader(editor, activeNoteId);
+
+  useEffect(() => {
+    return onUrlInputRequest((label) => {
+      setUrlDialogLabel(label);
+      setUrlDialogOpen(true);
+    });
+  }, []);
 
   const handleTitleChange = useCallback(
     (newTitle: string) => {
@@ -63,6 +74,19 @@ export function Editor() {
       {editor && <DragHandle editor={editor} />}
       {editor && <TableControls editor={editor} />}
       <EditorContent editor={editor} />
+
+      <UrlInputDialog
+        isOpen={urlDialogOpen}
+        label={urlDialogLabel}
+        onSubmit={(url) => {
+          resolveUrlInput(url);
+          setUrlDialogOpen(false);
+        }}
+        onCancel={() => {
+          cancelUrlInput();
+          setUrlDialogOpen(false);
+        }}
+      />
     </div>
   );
 }

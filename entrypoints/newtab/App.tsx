@@ -10,6 +10,8 @@ import { usePomodoroStore } from '../../lib/stores/pomodoro-store';
 import { useHabitStore } from '../../lib/stores/habit-store';
 import { useJournalStore } from '../../lib/stores/journal-store';
 import { useTaskStore } from '../../lib/stores/task-store';
+import { useSidebarWidgets } from '../../lib/stores/sidebar-widgets-store';
+import { useQuoteStore } from '../../lib/stores/quote-store';
 import { storageService } from '../../lib/storage/storage-service';
 import { useCommandPalette } from '../../hooks/useCommandPalette';
 import { CommandPalette } from '../../components/command-palette/CommandPalette';
@@ -31,6 +33,8 @@ export function App() {
         useJournalStore.getState().loadRecentEntries(),
         useTaskStore.getState().initialize(),
         useUIStore.getState().loadTodoPanelState(),
+        useSidebarWidgets.getState().loadFromStorage(),
+        useQuoteStore.getState().loadFromStorage(),
       ]);
 
       // Auto-select or create a note so the editor is visible
